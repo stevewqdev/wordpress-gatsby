@@ -1,0 +1,17 @@
+/* Main menu setup */
+.menu__wrapper.main-menu ul{
+    display: flex;
+    justify-content: unset;
+    align-items: center;
+    max-width: 300px;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+.menu__wrapper.main-menu ul li{
+    margin: 0 5px 0 0;
+    padding: 0;
+}
+.menu__wrapper.main-menu ul li a{
+    color:white;
+}

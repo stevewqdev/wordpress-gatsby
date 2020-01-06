@@ -1,0 +1,17 @@
+.header__wrapper{
+    background:rebeccapurple;
+    padding: 1.45rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.brand__wrapper .brand__name a{
+    color: white;
+    text-decoration: none;
+}
+.brand__wrapper .brand__name{
+    font-size: 20px;
+    margin: 0px;
+}
