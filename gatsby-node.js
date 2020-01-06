@@ -25,14 +25,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 const pages = result.data.allWordpressPage.edges
 
                 pages.forEach(edge => {
-                    // Here we can select the template of a page based
-                    // on the slug, id or any other property
-
-                    // But for a website with custom page templates for
-                    // each view, you can create them directly into the
-                    // Pages folder
-
-                    // Create the page
                     createPage({
                         path: `/${edge.node.slug}/`,
                         component: slash(pageTemplate),
