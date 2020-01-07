@@ -43,7 +43,7 @@ const MainMenu = () => {
         menuItems
         ? menuItems.map((item) => 
             <li key={item.slug} className={`list__element ` + item.classes}>
-              <Link to={item.url.replace(`${process.env.GATSBY_WP_URL}` , "")}>
+              <Link to={item.url.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}` , "")}>
                 {item.title}
               </Link>
             </li>

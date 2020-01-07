@@ -1,9 +1,13 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
+  // The site metadata below its not goin the be used because we are pulling this data from wordpress
   siteMetadata: {
     title: `Raxo - Wordpress + Gatsby`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     subtitle: `Raxo - Development`,
-    author: `@gatsbyjs`,
+    author: `@steveRaxo`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -12,8 +16,10 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-        baseUrl: `steve-portfolio.test`,
-        protocol: `http`,
+        // This is the base url for the website, right now its pulling data from the env file
+        baseUrl: `${process.env.GATSBY_WP_URL}`,
+        // This is the protocol used on the url for the website, right now its pulling data from the env file
+        protocol: `${process.env.GATSBY_WP_PROTOCOL}`,
         hostingWPCOM: false,
         useACF: true,
         verboseOutput: true,

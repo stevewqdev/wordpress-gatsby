@@ -29,7 +29,7 @@ return (
                       And we are using process.env.GATSBY_WP_URL variable, that it's set on 
                       the .env.development and .env.production
                     */}
-                    <Link to={node.link.replace(`${process.env.GATSBY_WP_URL}`, "")}>
+                    <Link to={node.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}`, "")}>
                       <h1 dangerouslySetInnerHTML={{__html: node.title}}/>
                     </Link>
                     <div className="post__resume" dangerouslySetInnerHTML={{__html: node.content}}/>
