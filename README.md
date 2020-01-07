@@ -14,9 +14,13 @@ All the logic, structure and styling code its inside de <strong>src</strong> fol
 <br>
 You can read more about it <a href="https://www.gatsbyjs.org/docs/gatsby-project-structure/" target="_BLANK">HERE</a></p>
 
+<h2>Wordpress side configuration</h2>
+<p>Here is a link with a <a>pre-packaged wordpress</a> file that contain all the necessary plugins for this to work <br>
+But if you want to download it all by yourself here its the list of plugins you need
+</p>
 
-<h2>On this boilerplate</h2>
-<p>We have some extra folders already created, but let start for the basics <br>
+<h2>About the graphql queries</h2>
+<p>You can use a tool called graphiql that will let you test the queries and see wich data you can return from your wordpress database<br>
 
 <h2>Pages configuration and custom template pages</h2>
 
@@ -75,7 +79,7 @@ If you need to add a custom query for returning data for the blog page, you can 
 <p>The other important file here its the posts.js (singular one) this one its the template used for show each individual post. Same, as on the page.js file theres a query with all the data, and you can add ACF to the post query</p>
 <h2>Still needs fixing</h2>
 <ul>
-<li>Currently all the meta data config its coming from the gatsby-config.js on the next commit this issue will be fixed</li>
+
 </ul>
 
 </p>

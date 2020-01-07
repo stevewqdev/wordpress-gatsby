@@ -10,11 +10,9 @@ class Header extends Component {
       return (
         <div className="header__wrapper">
           <div className="brand__wrapper">
-            <h1 className="brand__name">
-              <Link to="/">
-                {title}
-              </Link>
-            </h1>
+            <Link to="/" className="brand__link">
+              <h1 className="brand__name" dangerouslySetInnerHTML={{__html: title}}/>
+            </Link>
           </div>
           <MainMenu></MainMenu>
           <SocialMenu></SocialMenu>

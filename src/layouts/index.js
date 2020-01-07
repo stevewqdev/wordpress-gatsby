@@ -16,18 +16,25 @@ import "./index.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+    query {
+      allWordpressSiteMetadata {
+        edges {
+          node {
+            description
+            home
+            name
+            url
+          }
         }
       }
     }
   `)
 
+  const siteData = data.allWordpressSiteMetadata.edges[0].node
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={siteData.name} />
       <div className="master__wrapper">
         <main>{children}</main>
         <Footer />

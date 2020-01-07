@@ -7,7 +7,7 @@
     max-width: 100%;
     margin: 0 auto;
 }
-.brand__wrapper .brand__name a{
+.brand__wrapper .brand__link{
     color: white;
     text-decoration: none;
 }

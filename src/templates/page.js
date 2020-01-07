@@ -4,12 +4,12 @@ import { graphql } from "gatsby"
 
 class Page extends Component {
   render() {
-    const StaticPage = this.props.data.wordpressPage
+    const pageData = this.props.data.wordpressPage
 
     return (
       <Layout>
-        <h1 dangerouslySetInnerHTML={{__html: StaticPage.title}}/>
-        <div dangerouslySetInnerHTML={{__html: StaticPage.content}}/>
+        <h1 dangerouslySetInnerHTML={{__html: pageData.title}}/>
+        <div dangerouslySetInnerHTML={{__html: pageData.content}}/>
       </Layout>
     )
   }
