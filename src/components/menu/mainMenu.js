@@ -14,12 +14,9 @@ const MainMenu = () => {
       allWordpressMenusMenusItems(filter: {slug: {eq: "main-menu"}}) {
         edges {
           node {
-            id
             name
-            slug
             items{
               title
-              slug
               url
               classes
             }

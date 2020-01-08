@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: `./.env.${env === "production" ? "production" : "development"}`,
+  path: `.env.${process.env.NODE_ENV}`,
 })
 module.exports = {
   // The site metadata below its not goin the be used because we are pulling this data from wordpress
@@ -23,7 +23,16 @@ module.exports = {
         hostingWPCOM: false,
         useACF: true,
         verboseOutput: true,
-
+        includedRoutes: [
+          "**/categories",
+          "**/posts",
+          "**/pages",
+          "**/media",
+          "**/tags",
+          "**/taxonomies",
+          "**/users",
+          "**/menus"
+        ],
       },
     },
     `gatsby-transformer-sharp`,

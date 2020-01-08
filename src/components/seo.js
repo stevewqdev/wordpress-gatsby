@@ -11,22 +11,20 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({ description, lang, meta, title }) {
-  const { data } = useStaticQuery(
-    graphql`
-      query {
-        allWordpressSiteMetadata {
-          edges {
-            node {
-              description
-              home
-              name
-              url
-            }
+  const data = useStaticQuery(graphql`
+    query {
+      allWordpressSiteMetadata {
+        edges {
+          node {
+            description
+            home
+            name
+            url
           }
         }
       }
-    `
-  )
+    }
+  `)
   const siteData = data.allWordpressSiteMetadata.edges[0].node
   const metaDescription = description || siteData.description
 
