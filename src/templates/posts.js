@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Layout from "../layouts/index"
 import Link from 'gatsby-link'
@@ -14,7 +15,6 @@ const IndexPage = ({ pageContext }) => {
 const { group, index, first, last, pageCount } = pageContext
 const previousUrl = index - 1 === 1 ? '/' : (index - 1).toString()
 const nextUrl = (index + 1).toString()
-
 
 return (
     <Layout>
@@ -33,10 +33,10 @@ return (
                       And we are using process.env.GATSBY_WP_URL variable, that it's set on 
                       the .env.development and .env.production
                     */}
-
+ 
                     <div className={node.featured_media ? 'list__post__info' : 'list__post__info --full__width'  }>
                       <p className="list__post__date"><small><b>{node.date}</b></small></p>
-                      <Link to={node.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}`, "")}>
+                      <Link to={'/post/'+node.slug}>
                         <h1 class="list__post__title" dangerouslySetInnerHTML={{__html: node.title}}/>
                       </Link>
                       <div className="list__post__excerpt " dangerouslySetInnerHTML={{__html: node.content.substring(0, 280) }}/>

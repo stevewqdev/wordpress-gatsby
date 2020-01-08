@@ -42,7 +42,7 @@ const MainMenu = () => {
         menuItems
         ? menuItems.map((item, index) => 
             <li key={item.wordpress_id}  className={`list__element ` + item.classes}>
-              <Link to={item.url.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}` , "")}>
+              <Link to={'/' + item.url}>
                 {item.title}
               </Link>
             </li>
