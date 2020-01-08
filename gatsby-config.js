@@ -23,6 +23,7 @@ module.exports = {
         hostingWPCOM: false,
         useACF: true,
         verboseOutput: true,
+
       },
     },
     `gatsby-transformer-sharp`,
