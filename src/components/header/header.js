@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import MainMenu from "../menu/mainMenu"
 import SocialMenu from "../social-menu/socialMenu"
 import "./header.css"
+import logo from "./../../images/logo.png"
 
 class Header extends Component {
   render() {
@@ -11,7 +12,7 @@ class Header extends Component {
         <div className="header__wrapper">
           <div className="brand__wrapper">
             <Link to="/" className="brand__link">
-              <h1 className="brand__name" dangerouslySetInnerHTML={{__html: title}}/>
+              <img className="brand__logo" src={logo} alt={title}/>
             </Link>
           </div>
           <MainMenu></MainMenu>

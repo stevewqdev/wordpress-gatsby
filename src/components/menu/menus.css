@@ -1,5 +1,5 @@
 /* Main menu setup */
-.menu__wrapper.main-menu ul{
+.menu__wrapper.main__menu ul{
     display: flex;
     justify-content: unset;
     align-items: center;
@@ -8,10 +8,10 @@
     padding: 10px 0;
     margin: 0;
 }
-.menu__wrapper.main-menu ul li{
-    margin: 0 5px 0 0;
+.menu__wrapper.main__menu ul li{
+    margin: 0 10px 0 0;
     padding: 0;
 }
-.menu__wrapper.main-menu ul li a{
-    color:white;
+.menu__wrapper.main__menu ul li a{
+    color:black;
 }

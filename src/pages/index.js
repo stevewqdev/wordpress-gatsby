@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Layout from "../layouts/index"
 import { graphql } from "gatsby"
-
+import "./css/index.css"
 class HomePage extends Component {
   render() {
     // This variable will return all the fields related to the post

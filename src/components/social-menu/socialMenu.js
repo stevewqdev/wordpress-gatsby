@@ -34,11 +34,12 @@ const SocialMenu = ({  }) => {
   }
   
   return (
-    <div className="social__menu">
-      <ul >
+    <div className={menuItems ? 'social__menu' : ' hidden__element'}>
+      <ul className="social__menu__wrapper">
       {
         menuItems
-        ? menuItems.map((item, index) => 
+        ? 
+          menuItems.map((item, index) => 
             <li key={item.network_channel-index} className={`social__menu__tem`}>
               <a href={item.network_link} target="_blank" rel="noopener noreferrer">
                 <i class={`fab fa-`+item.network_channel}>{item.network_channel}</i>

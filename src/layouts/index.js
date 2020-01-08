@@ -31,12 +31,11 @@ const Layout = ({ children }) => {
   `)
 
   const siteData = data.allWordpressSiteMetadata.edges[0].node
-
   return (
     <>
       <Header siteTitle={siteData.name} />
       <div className="master__wrapper">
-        <main>{children}</main>
+        <main className="container">{children}</main>
         <Footer />
       </div>
     </>

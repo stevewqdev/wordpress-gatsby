@@ -3,7 +3,7 @@ import Layout from "../layouts/index"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-
+import "./css/post.css"
 class Post extends Component {
   render() {
     // This variable will return all the fields related to the post
@@ -40,16 +40,17 @@ class Post extends Component {
                 :  <div className="post__image --noImage"></div>
               }
             </div>
+            <div className="post__date">
+              <p><small><b>{post.date}</b></small></p>
+            </div>
             <div className="post__title">
               <h1 dangerouslySetInnerHTML={{__html: post.title}}/>
             </div>
             <div className="post__content">
               <div dangerouslySetInnerHTML={{__html: post.content}}/>
             </div>
+            <hr></hr>
             <div className="post__meta">
-              <div className="post__date">
-                <p><strong>Published on: </strong>{post.date}</p>
-              </div>
               <div className="post__category">
                 <div className="post__category__wrapper">
                   {
@@ -67,7 +68,7 @@ class Post extends Component {
                     : post.categories.map( (categorie, index) => (
                       categorie.slug === 'uncategorized'
                       ? ''
-                      : <div key={categorie-index}>
+                      : <div className="category__item" key={categorie-index}>
                           <p>
                             <strong> {categorie.slug} </strong>
                           </p>
@@ -77,8 +78,9 @@ class Post extends Component {
                 </div>
               </div>
             </div>
-            <hr></hr>
-            <Link to={'/blog'}>Return to Blog</Link>
+            <div className="return__main__blog">
+                <Link to={'/blog'}>Return to Blog</Link>
+            </div>
           </div>
       </Layout>
     )

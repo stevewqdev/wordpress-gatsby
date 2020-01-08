@@ -1,5 +1,5 @@
 .header__wrapper{
-    background:rebeccapurple;
+    background:transparent;
     padding: 1.45rem;
     display: flex;
     justify-content: space-between;
@@ -12,6 +12,10 @@
     text-decoration: none;
 }
 .brand__wrapper .brand__name{
-    font-size: 20px;
+    font-size: 20px; 
     margin: 0px;
+}
+.brand__wrapper .brand__logo{
+    max-width: 120px;
+    margin: 0;
 }

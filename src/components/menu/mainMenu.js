@@ -15,10 +15,12 @@ const MainMenu = () => {
         edges {
           node {
             name
+            wordpress_id
             items{
               title
               url
               classes
+              wordpress_id
             }
           }
         }
@@ -27,19 +29,19 @@ const MainMenu = () => {
   `)
 
   var menuItems = false; 
-  var menuName = false; 
+  var menuId = false; 
   if(data.allWordpressMenusMenusItems){
     menuItems = data.allWordpressMenusMenusItems.edges[0].node.items;
-    menuName  = data.allWordpressMenusMenusItems.edges[0].node.slug;
+    menuId  = data.allWordpressMenusMenusItems.edges[0].node.wordpress_id;
   }
   
   return (
-    <div className={`menu__wrapper ` +  menuName}>
+    <div className={`menu__wrapper main__menu menu-` +  menuId}>
       <ul >
       {
         menuItems
-        ? menuItems.map((item) => 
-            <li key={item.slug} className={`list__element ` + item.classes}>
+        ? menuItems.map((item, index) => 
+            <li key={item.wordpress_id}  className={`list__element ` + item.classes}>
               <Link to={item.url.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}` , "")}>
                 {item.title}
               </Link>

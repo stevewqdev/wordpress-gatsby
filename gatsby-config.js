@@ -10,6 +10,29 @@ module.exports = {
     author: `@steveRaxo`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Playfair Display`,
+            variants: [`400`, `700`]
+          },
+          {
+            family: `Quicksand`,
+            variants: [`400`,  `500` ,  `700`]
+          },
+          {
+            family: `Playfair Display`,
+            subsets: [`latin`]
+          },
+          {
+            family: `Quicksand`,
+            subsets: [`latin`]
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-wordpress`,
@@ -17,7 +40,7 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
         // This is the base url for the website, right now its pulling data from the env file
-        baseUrl: `${process.env.GATSBY_WP_URL}`,
+        baseUrl: `${process.env.GATSBY_WP_API_LINK}`,
         // This is the protocol used on the url for the website, right now its pulling data from the env file
         protocol: `${process.env.GATSBY_WP_PROTOCOL}`,
         hostingWPCOM: false,

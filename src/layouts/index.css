@@ -620,8 +620,31 @@ pre tt:after {
     font-size: 100%;
   }
 }
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Playfair Display', serif;
+}
+p, a, small, i{
+  font-family: 'Quicksand', sans-serif;
+}
+a{
+  text-decoration: none;
+  color: #d13368;
+}
 .master__wrapper{
   margin: 0 auto;
   max-width: 100%;
-  padding: 100px 1.0875rem 1.45rem;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.master__wrapper .container{
+  min-width: 1120px;
+  max-width: 1120px;
+  padding: 70px 1.0875rem 70px;
+}
+.hidden__element{
+  display: none;
+  position: absolute;
 }
