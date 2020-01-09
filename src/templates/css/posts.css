@@ -31,30 +31,40 @@
 }
 .blog__list{
     display: flex;
-    margin: 50px  0;
+    margin: 50px  0 100px;
     flex-wrap: wrap;
 }
-.list__post__info{
+.blog__list.--left .row{
+    flex-direction: row-reverse;
+}
+.blog__list.--left .list__post__info{
+    padding-right: 0px;
+    padding-left: 20px;
+}
+.blog__list .list__post__info{
     display: flex;
     flex-direction: column;
     padding-right: 20px;
+    display: flex;
+    justify-content: center;
 }
-
 .list__post__image img{
     height: 100%;
+    min-height: 300px;
     width: 100%;
     object-fit: cover;
     box-shadow: 0 30px 60px -10px rgba(0,0,0,0.3), 0 18px 36px -18px rgba(0,0,0,0.33);    
     transition: top 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), box-shadow 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
     position: relative;
     top: 0px;
+    border-radius: 4px;
 }
 .list__post__image img:hover{
-
+    box-shadow: 0 30px 60px -10px #d1336826, 0 18px 36px -18px #d1336861;  
 }
 .blog__list:hover img{
     top: -3px;
-    box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.08), 0 18px 36px -18px rgba(0,0,0,0.33);
+    box-shadow: 0 30px 60px -10px #d1336826, 0 18px 36px -18px #d1336861;  
 }
 .post__divider{
     width: 90%;
