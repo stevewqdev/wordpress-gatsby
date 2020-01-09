@@ -1,0 +1,15 @@
+/* Basic Pagination Styling */
+.pagination__controller span, .pagination__controller a{
+    font-family: 'Playfair Display', serif;
+    padding: 0 15px 0 0;
+}
+.pagination__controller a{
+    color: #d13368;
+}
+.pagination__controller{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+/* You can add styling variations for the pagination controller */

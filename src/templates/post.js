@@ -2,12 +2,14 @@ import React, { Component } from "react"
 import Layout from "../layouts/index"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import ReturnButton from '../components/master/returnButton/returnButton'
+
 import "./css/post.css"
 class Post extends Component {
   render() {
     // This variable will return all the fields related to the post
     const post = this.props.data.wordpressPost
+    const previousLocation = document.referrer
     // We create an object for the image data, you can add as many properties you need
     var postMedia = {
       image: false,
@@ -78,9 +80,7 @@ class Post extends Component {
                 </div>
               </div>
             </div>
-            <div className="return__main__blog">
-                <Link to={'/blog'}>Return to Blog</Link>
-            </div>
+            <ReturnButton buttonText={'Return to Blog'} redirectionLink={'/blog'} customClass={'inner__post__return__button'}></ReturnButton>
           </div>
       </Layout>
     )

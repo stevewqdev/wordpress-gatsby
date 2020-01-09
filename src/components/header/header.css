@@ -18,4 +18,12 @@
 .brand__wrapper .brand__logo{
     max-width: 120px;
     margin: 0;
+    image-rendering: -moz-crisp-edges; /* Firefox */
+    image-rendering: -o-crisp-edges; /* Opera */
+    image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+}
+.brand__wrapper .brand__svg__logo{
+    height: 40px;
 }
