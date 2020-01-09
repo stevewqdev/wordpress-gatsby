@@ -1,10 +1,14 @@
 /* Basic Pagination Styling */
 .pagination__controller span, .pagination__controller a{
     font-family: 'Playfair Display', serif;
-    padding: 0 15px 0 0;
+}
+.paginated__list{
+    margin: 0 15px 0;
 }
 .pagination__controller a{
     color: #d13368;
+    position: relative;
+    top: -1px;
 }
 .pagination__controller{
     display: flex;
@@ -28,5 +32,20 @@
 }
 .paginated__previous__next a{
     color: #9c7f89
+}
+.paginated__list.current__page{
+    background: #d13368;
+    padding: 0 13px;
+    border-radius: 100%;
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 25px;
+}
+.paginated__list.current__page a{
+    color: white;
 }
 /* You can add styling variations for the pagination controller */
