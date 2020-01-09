@@ -48,9 +48,10 @@ return (
                 next={last} nextUrl={"/blog/" + nextUrl} 
                 previous={first} previousUrl={"/blog/" + previousUrl} 
                 customClass={'blog__pagination__controller'}
+                pageTotal={pageCount}
             >
             </PaginationController>
-            <ReturnButton redirectionLink={'/'} customClass={'blog__return__button'}></ReturnButton>
+            <ReturnButton buttonText="Return to home" redirectionLink={'/'} customClass={'blog__return__button'}></ReturnButton>
         </div> 
     </Layout>
   )

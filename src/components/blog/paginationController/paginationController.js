@@ -15,6 +15,9 @@ class PaginationController extends Component {
 
         return (
             <div className={'pagination__controller ' + props.customClass}>
+                <div className={'paginated__controller'}>
+
+                </div>
                 <div className="previousLink">
                     <NavLink test={props.previous} url={props.previousUrl} text="<< Go to Previous Page" />
                 </div>
