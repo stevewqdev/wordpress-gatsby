@@ -49,7 +49,7 @@ query MyQuery {
         id
         title
         content
-        date(formatString: "dddd, MMMM YYYY")
+        date(formatString: "MMMM DD, YYYY")
         acf{
           title
         }

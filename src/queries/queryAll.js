@@ -23,7 +23,7 @@ module.exports = `
                 template
                 format
                 title
-                date(formatString: "dddd, MMMM YYYY")
+                date(formatString: "MMMM DD, YYYY")
                 link
                 categories {
                   slug
