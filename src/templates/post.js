@@ -9,7 +9,6 @@ class Post extends Component {
   render() {
     // This variable will return all the fields related to the post
     const post = this.props.data.wordpressPost
-    const previousLocation = document.referrer
     // We create an object for the image data, you can add as many properties you need
     var postMedia = {
       image: false,
