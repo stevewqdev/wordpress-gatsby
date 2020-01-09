@@ -15,32 +15,42 @@ module.exports = `
         }
         allWordpressPost {
             edges {
-                node {
-                    id  
-                    content
-                    slug
-                    status
-                    template
-                    format
-                    title
-                    date(formatString: "dddd, MMMM YYYY")
-                    link
-                    categories {
-                        slug
-                    }
-                    featured_media{
-                        localFile{
-                            childImageSharp{
-                                resolutions(width:500, height: 200){
-                                    src
-                                    width
-                                    height
-                                }
-                            }
-                        }
-                        alt_text
-                    }
+              node {
+                id
+                slug
+                content
+                status
+                template
+                format
+                title
+                date(formatString: "dddd, MMMM YYYY")
+                link
+                categories {
+                  slug
+                  description
+                  path
                 }
+                featured_media {
+                  localFile {
+                    childImageSharp {
+                      resolutions(width: 500, height: 200) {
+                        src
+                        width
+                        height
+                      }
+                    }
+                  }
+                  alt_text
+                }
+                author {
+                  name
+                  avatar_urls {
+                    wordpress_48
+                  }
+                  url
+                  wordpress_id
+                }
+              }
             }
         }
     }

@@ -11,5 +11,22 @@
     justify-content: center;
     align-items: center;
     margin: 10px 0;
+    flex-direction: column;
+}
+.paginated__controller{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.paginated__previous__next{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 12px;
+}
+.paginated__previous__next a{
+    color: #9c7f89
 }
 /* You can add styling variations for the pagination controller */

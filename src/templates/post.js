@@ -41,41 +41,43 @@ class Post extends Component {
                 :  <div className="post__image --noImage"></div>
               }
             </div>
-            <div className="post__date">
-              <p><small><b>{post.date}</b></small></p>
-            </div>
-            <div className="post__title">
-              <h1 dangerouslySetInnerHTML={{__html: post.title}}/>
-            </div>
-            <div className="post__content">
-              <div dangerouslySetInnerHTML={{__html: post.content}}/>
-            </div>
-            <hr></hr>
-            <div className="post__meta">
-              <div className="post__category">
-                <div className="post__category__wrapper">
-                  {
-                    /* 
-                      Here we check if the variable noCategory exist
-                      and based on that we show a message or we show
-                      the categories
-                    */
-                    noCategory
-                    ? <div key="nocat-1">
-                        <p>
-                          <strong> This post its no categorized yet </strong>
-                        </p>
-                      </div>
-                    : post.categories.map( (categorie, index) => (
-                      categorie.slug === 'uncategorized'
-                      ? ''
-                      : <div className="category__item" key={categorie-index}>
+            <div className="post__content__wrapper">
+              <div className="post__date">
+                <p><small><b>{post.author.name}, {post.date}</b></small></p>
+              </div>
+              <div className="post__title">
+                <h1 dangerouslySetInnerHTML={{__html: post.title}}/>
+              </div>
+              <div className="post__content">
+                <div dangerouslySetInnerHTML={{__html: post.content}}/>
+              </div>
+              <hr></hr>
+              <div className="post__meta">
+                <div className="post__category">
+                  <div className="post__category__wrapper">
+                    {
+                      /* 
+                        Here we check if the variable noCategory exist
+                        and based on that we show a message or we show
+                        the categories
+                      */
+                      noCategory
+                      ? <div key="nocat-1">
                           <p>
-                            <strong> {categorie.slug} </strong>
+                            <strong> This post its no categorized yet </strong>
                           </p>
                         </div>
-                    ))
-                  }
+                      : post.categories.map( (categorie, index) => (
+                        categorie.slug === 'uncategorized'
+                        ? ''
+                        : <div className="category__item" key={categorie-index}>
+                            <p>
+                              <strong> {categorie.slug} </strong>
+                            </p>
+                          </div>
+                      ))
+                    }
+                  </div>
                 </div>
               </div>
             </div>
@@ -118,7 +120,7 @@ export const postQuery = graphql`
     wordpressPost(id: { eq: $id }) {
       title
       content
-      date(formatString: "dddd, MMMM YYYY")
+      date(formatString: "MMMM DD, YYYY")
       status
       featured_media{
         localFile{
@@ -131,6 +133,14 @@ export const postQuery = graphql`
           }
         } 
         alt_text
+      }
+      author {
+        name
+        avatar_urls {
+          wordpress_48
+        }
+        url
+        wordpress_id
       }
       categories {
         slug

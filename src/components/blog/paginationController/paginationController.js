@@ -12,18 +12,46 @@ const NavLink = props => {
 class PaginationController extends Component {
     render() {
         const props = this.props; 
-
+        const nextPage = props.indexNextPage;
+        const pages = []; 
+        if(props.pageTotal > 0){
+          for (let index = 0; index < props.pageTotal; index++) {
+            pages.push(index);
+          }
+        }
         return (
             <div className={'pagination__controller ' + props.customClass}>
                 <div className={'paginated__controller'}>
+                {
+                  pages.length > 0
+                  ?
+                  pages.map((index) => (
+                    <div className="paginated__list">
+                      <Link to={index+1 === 1 ? `/blog/` : `/blog/${index+1}`}>
+                        {index+1}
+                      </Link>
+                    </div>
+                  ))
+                  : ''
+                }
+                </div>
+                <div className={'paginated__previous__next'}>
+                  {
+                    nextPage == 2
+                    ? ''
+                    : <div className={'previousLink  ' + nextPage}>
+                          <NavLink test={props.previous} url={props.previousUrl} text="Go to Previous Page" />
+                      </div>
+                  }
+                  {
+                    nextPage > props.pageTotal
+                    ? ''
+                    : <div className="nextLink">
+                          <NavLink test={props.next} url={props.nextUrl} text="Go to Next Page" />
+                      </div>
+                  }
+                </div>
 
-                </div>
-                <div className="previousLink">
-                    <NavLink test={props.previous} url={props.previousUrl} text="<< Go to Previous Page" />
-                </div>
-                <div className="nextLink">
-                    <NavLink test={props.next} url={props.nextUrl} text="Go to Next Page >>" />
-                </div>
             </div>
         )
     }

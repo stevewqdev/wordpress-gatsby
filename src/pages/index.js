@@ -6,12 +6,13 @@ class HomePage extends Component {
   render() {
     // This variable will return all the fields related to the post
     const home = this.props.data.allWordpressPage.edges[0].node
-
+    const acfFields = this.props.data.allWordpressPage.edges[0].node.acf
     return (
       <Layout>
         <div className="home__page">
             <h1 dangerouslySetInnerHTML={{__html: home.title}}/>
             <div dangerouslySetInnerHTML={{__html: home.content}}/>
+            <p dangerouslySetInnerHTML={{__html: acfFields.title}}/>
             <p>
               <strong dangerouslySetInnerHTML={{__html: home.date}}/>
             </p>
@@ -49,6 +50,9 @@ query MyQuery {
         title
         content
         date(formatString: "dddd, MMMM YYYY")
+        acf{
+          title
+        }
       }
     }
   }

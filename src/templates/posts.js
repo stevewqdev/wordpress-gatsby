@@ -30,6 +30,9 @@ return (
                           <h1 className="list__post__title" dangerouslySetInnerHTML={{__html: node.title}}/>
                         </Link>
                         <div className="list__post__excerpt " dangerouslySetInnerHTML={{__html: node.content.substring(0, 280) }}/>
+                        <div className="list__post__author">
+                          <p><small><b>by {node.author.name}</b></small></p>
+                        </div>
                       </div>
                       {
                         node.featured_media
@@ -45,8 +48,8 @@ return (
                 </div>
             ))}
             <PaginationController 
-                next={last} nextUrl={"/blog/" + nextUrl} 
-                previous={first} previousUrl={"/blog/" + previousUrl} 
+                next={last} indexNextPage={nextUrl} nextUrl={"/blog/" + nextUrl} 
+                previous={first} indexPrevPage={previousUrl} previousUrl={"/blog/" + previousUrl} 
                 customClass={'blog__pagination__controller'}
                 pageTotal={pageCount}
             >
