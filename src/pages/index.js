@@ -11,7 +11,7 @@ class HomePage extends Component {
       <Layout>
         <div className="home__page">
             <h1 dangerouslySetInnerHTML={{__html: home.title}}/>
-            <p dangerouslySetInnerHTML={{__html: home.content}}/>
+            <div dangerouslySetInnerHTML={{__html: home.content}}/>
             <p>
                 <strong dangerouslySetInnerHTML={{__html: home.date}}/>
             </p>
