@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import ReturnButton from '../components/master/returnButton/returnButton'
 
+
 import "./css/post.css"
 class Post extends Component {
   render() {
@@ -12,12 +13,14 @@ class Post extends Component {
     // We create an object for the image data, you can add as many properties you need
     var postMedia = {
       image: false,
+      webpImage: false,
       altText: '',
     }; 
     // We will check if the post has any featured image set
     if(post.featured_media){
       // We save the image url into the object
       postMedia.image = post.featured_media.localFile.childImageSharp.resolutions.src
+      postMedia.webpImage = post.featured_media.localFile.childImageSharp.resolutions.srcWebp
       // We check if the image contains the alt text and we save it into the object
       if(post.featured_media.alt_text.length > 0){
         postMedia.altText = post.featured_media.alt_text;
@@ -33,11 +36,18 @@ class Post extends Component {
     }
     return (
       <Layout>
-          <div className="post">
+          <div className="post container">
             <div className="post__image">
               {
                 postMedia.image 
-                ?  <img src={postMedia.image} alt={postMedia.altText} /> 
+                ? 
+                  <>
+                    <picture>
+                      <source srcset={postMedia.webpImage} type="image/webp" />
+                      <source srcset={postMedia.image} type="image/jpeg" />
+                      <img src={postMedia.image} alt={postMedia.altText} /> 
+                    </picture>
+                  </>
                 :  <div className="post__image --noImage"></div>
               }
             </div>
@@ -125,11 +135,12 @@ export const postQuery = graphql`
       featured_media{
         localFile{
           childImageSharp{
-              resolutions(width:500, height: 200){
-                  src
-                  width
-                  height
-              }
+            resolutions(width: 500, height: 200) {
+              src
+              width
+              height
+              srcWebp
+            }
           }
         } 
         alt_text

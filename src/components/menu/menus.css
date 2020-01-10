@@ -15,3 +15,6 @@
 .menu__wrapper.main__menu ul li a{
     color:black;
 }
+.menu__wrapper.main__menu.--dark ul li a{
+    color:white;
+}

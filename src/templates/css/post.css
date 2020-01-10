@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 70px 1.0875rem 70px;
 }
 .post__content__wrapper{
     padding: 0 130px;

@@ -1,3 +1,6 @@
+body{
+    background: #fdfdfd;
+}
 h1, h2, h3, h4, h5, h6, ul, li{
     font-family: 'Playfair Display', serif;
 }
@@ -16,10 +19,12 @@ a, a:hover{
     align-items: center;
     flex-direction: column;
 }
-.master__wrapper > .container{
-    padding: 70px 1.0875rem 70px;
-}
+
+
 .hidden__element{
     display: none;
     position: absolute;
+}
+.master__wrapper main{
+    width: 100%;
 }

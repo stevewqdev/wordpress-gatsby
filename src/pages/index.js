@@ -10,12 +10,14 @@ class HomePage extends Component {
     return (
       <Layout>
         <div className="home__page">
+          <div className="home__page__content container">
             <h1 dangerouslySetInnerHTML={{__html: home.title}}/>
             <div dangerouslySetInnerHTML={{__html: home.content}}/>
             <p dangerouslySetInnerHTML={{__html: acfFields.title}}/>
             <p>
               <strong dangerouslySetInnerHTML={{__html: home.date}}/>
             </p>
+          </div>
         </div>
       </Layout>
     )

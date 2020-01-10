@@ -1,3 +1,8 @@
 .home__page{
-    min-height: 400px;
+    min-height: 81vh;
+    background: black;
+    color: white;
+    padding: 70px 1.0875rem 70px;
+    display: flex;
+    align-items: center;
 }

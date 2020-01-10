@@ -14,7 +14,7 @@ const nextUrl = (index + 1).toString()
 
 return (
     <Layout>
-        <div className="blog">
+        <div className="blog container">
             <div className="listed__counter container">
                 <div className="row">
                   <h5><span>{pageCount}</span> Total pages - </h5> 
@@ -22,14 +22,18 @@ return (
                 </div>
             </div>
             {group.map(({ node }, index) => (
-                <div key={node.id}  className={index % 2 == 0 ? 'blog__list --right container' : 'blog__list --left container'}  >
+                <div key={node.id}  className={index % 2 === 0 ? 'blog__list --right container' : 'blog__list --left container'}  >
                     <div className="row">
                       <div className={node.featured_media ? 'list__post__info col-xs-12 col-md-6' : 'list__post__info --full__width col-xs-12 col-md-12'  }>
                         <p className="list__post__date"><small><b>{node.date}</b></small></p>
                         <Link to={'/post/'+node.slug}  >
                           <h1 className="list__post__title" dangerouslySetInnerHTML={{__html: node.title}}/>
                         </Link>
-                        <div className="list__post__excerpt " dangerouslySetInnerHTML={{__html: node.content.substring(0, 280) }}/>
+                        {
+                          node.content !== 'undefined'
+                          ? <div className="list__post__excerpt " dangerouslySetInnerHTML={{__html: node.content.substring(0, 280) }}/>
+                          : ''
+                        }
                         <div className="list__post__author">
                           <p><small><b>by {node.author.name}</b></small></p>
                         </div>

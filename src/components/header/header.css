@@ -6,6 +6,8 @@
     align-items: center;
     max-width: 100%;
     margin: 0 auto;
+    position: absolute;
+    width: 100%;
 }
 .brand__wrapper .brand__link{
     color: white;

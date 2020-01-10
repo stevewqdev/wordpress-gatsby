@@ -2,7 +2,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Link from "gatsby-link"
 import "./menus.css"
-const MainMenu = () => {
+
+const MainMenu = (props) => {
     /* ===================IMPORTANT======================
     For this menu to work you need to create a menu
     with the slug name of main-menu or you can change
@@ -36,7 +37,7 @@ const MainMenu = () => {
   }
   
   return (
-    <div className={`menu__wrapper main__menu menu-` +  menuId}>
+    <div className={`menu__wrapper main__menu menu-${menuId} ${props.theme}`}>
       <ul >
       {
         menuItems
