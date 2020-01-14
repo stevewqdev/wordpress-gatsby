@@ -61,3 +61,6 @@
 .async__results.--aform{
     padding: 0px 0;
 }
+.async__results .the__result p{
+    max-width: 170px;
+}

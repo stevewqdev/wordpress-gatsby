@@ -4,10 +4,10 @@ require("dotenv").config({
 module.exports = {
   // The site metadata below its not goin the be used because we are pulling this data from wordpress
   siteMetadata: {
-    title: `Raxo - Wordpress + Gatsby`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    subtitle: `Raxo - Development`,
-    author: `@steveRaxo`,
+    title: ``,
+    description: ``,
+    subtitle: ``,
+    author: ``,
   },
   plugins: [
     {
