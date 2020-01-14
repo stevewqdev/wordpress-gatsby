@@ -31,22 +31,15 @@ module.exports = `
                 path
               }
               featured_media {
-                localFile {
-                  childImageSharp {
-                    resolutions(width: 500, height: 200) {
-                      src
-                      width
-                      height
-                      srcWebp
-                    }
-                  }
-                }
+                source_url
                 alt_text
               }
               author {
                 name
                 avatar_urls {
+                  wordpress_24
                   wordpress_48
+                  wordpress_96
                 }
                 url
                 wordpress_id

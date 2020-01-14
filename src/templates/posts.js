@@ -43,7 +43,7 @@ return (
                         ?
                         <div className="list__post__image --half__width">
                           <Link to={'/post/'+node.slug}  >
-                            <img src={node.featured_media.localFile.childImageSharp.resolutions.src} alt={node.featured_media.alt_text} />
+                            <img src={node.featured_media.source_url} alt={node.featured_media.alt_text} />
                           </Link>
                         </div>
                         : ''

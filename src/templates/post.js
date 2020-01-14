@@ -19,8 +19,8 @@ class Post extends Component {
     // We will check if the post has any featured image set
     if(post.featured_media){
       // We save the image url into the object
-      postMedia.image = post.featured_media.localFile.childImageSharp.resolutions.src
-      postMedia.webpImage = post.featured_media.localFile.childImageSharp.resolutions.srcWebp
+      postMedia.image = post.featured_media.source_url
+      postMedia.webpImage = post.featured_media.source_url
       // We check if the image contains the alt text and we save it into the object
       if(post.featured_media.alt_text.length > 0){
         postMedia.altText = post.featured_media.alt_text;
@@ -133,22 +133,15 @@ export const postQuery = graphql`
       date(formatString: "MMMM DD, YYYY")
       status
       featured_media{
-        localFile{
-          childImageSharp{
-            resolutions(width: 500, height: 200) {
-              src
-              width
-              height
-              srcWebp
-            }
-          }
-        } 
+        source_url
         alt_text
       }
       author {
         name
         avatar_urls {
+          wordpress_24
           wordpress_48
+          wordpress_96
         }
         url
         wordpress_id
@@ -157,11 +150,5 @@ export const postQuery = graphql`
         slug
       }
     } 
-    site {
-      siteMetadata {
-        title
-        subtitle
-      }
-    }
   }
 `

@@ -23,12 +23,5 @@ export const pageQuery = graphql`
       title
       content
     }
-    site {
-      id
-      siteMetadata {
-        title
-        subtitle
-      }
-    }
   }
 `

@@ -68,6 +68,7 @@
     position: relative;
     top: 0px;
     border-radius: 4px;
+    max-height: 400px;
 }
 .list__post__image img:hover{
     box-shadow: 0 30px 60px -10px #d1336826, 0 18px 36px -18px #d1336861;  
@@ -97,4 +98,7 @@
 .list__post__author p{
     color: #d13368;
     font-size: 15px;
+}
+.blog__list .list__post__info.--full__width {
+    padding-left: 0;
 }
