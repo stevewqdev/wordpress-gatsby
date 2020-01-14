@@ -1,5 +1,10 @@
 .blog{
-    padding: 70px 1.0875rem 70px;
+    padding: 200px 1.0875rem 200px;
+    margin: 0 auto;
+}
+.blog__list .row {
+    display: flex;
+    flex-wrap: wrap;
 }
 .list__post__title{
     color: black;
@@ -7,7 +12,7 @@
 .list__post__date{
     color: #d13368;
 }
-.listed__counter{
+.listed__counter .row{
     display: flex;
     text-align: right;
     justify-content: flex-end;
@@ -38,12 +43,18 @@
 }
 .blog__list.--left .list__post__info{
     padding-right: 0px;
-    padding-left: 20px;
+    padding-left: 50px;
+}
+.listed__counter.container__base{
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+    align-items: center;
 }
 .blog__list .list__post__info{
     display: flex;
     flex-direction: column;
-    padding-right: 20px;
+    padding-right: 50px;
     display: flex;
     justify-content: center;
 }
@@ -74,6 +85,14 @@
 .list__post__info.--full__width{
     max-width: 100%;
     width: 100%;
+}
+.list__post__info.--half__width{
+    max-width: 50%;
+    width: 50%;  
+}
+.list__post__image.--half__width{
+    max-width: 50%;
+    width: 50%; 
 }
 .list__post__author p{
     color: #d13368;

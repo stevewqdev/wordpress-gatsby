@@ -4,7 +4,7 @@ body{
 h1, h2, h3, h4, h5, h6, ul, li{
     font-family: 'Playfair Display', serif;
 }
-p, a, small, i{
+p, a, small, i, label, input, textarea, button{
     font-family: 'Quicksand', sans-serif;
 }
 a, a:hover{
@@ -19,12 +19,23 @@ a, a:hover{
     align-items: center;
     flex-direction: column;
 }
-
-
 .hidden__element{
     display: none;
     position: absolute;
 }
 .master__wrapper main{
     width: 100%;
+}
+.container__base{
+    max-width: 1140px;
+    width: 100%;
+}
+.container__base .row{
+    width: 100%;
+}
+.r__fuchsia{
+    color: #d13368;
+}
+.centered__text{
+    text-align: center;
 }

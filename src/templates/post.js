@@ -36,7 +36,7 @@ class Post extends Component {
     }
     return (
       <Layout>
-          <div className="post container">
+          <div className="post container__base">
             <div className="post__image">
               {
                 postMedia.image 
