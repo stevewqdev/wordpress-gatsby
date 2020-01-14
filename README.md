@@ -9,7 +9,7 @@
 <hr>
 <p><br />This is a starter boilertplate powered by the Wordpress API and the blazing fast static site generator Gatsby. Also will let you use the awesome plugin ACF</p>
 <p>The next documentation will show you how to set up a Wordpress instalation as a headless <strong>CMS</strong> using Gatsby integrated with Netlify to render the frontend of the page and how you can setup and use Netlify Hooks to re-deploy your website whenever you want.</p>
-<p><strong><em>DISCLAIMER: theres a way to deploy using the netlify hooks everytime you save or update a new post, but right now thats not the one used here, this one let's you do a full deploy after you finish all your changes and updates.</em></strong></p>
+<p><strong><em>IMPORTANT: theres a way to deploy using the netlify hooks everytime you save or update a new post, but right now thats not the one used here, this one let's you do a full deploy after you finish all your changes and updates.</em></strong></p>
 <p><strong>It might seem like a lot of steps, but all the setup its actually pretty straightfoward&nbsp;</strong></p>
 <h2>Let's begin</h2>
 <ol>
