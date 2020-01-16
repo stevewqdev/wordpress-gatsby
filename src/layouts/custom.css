@@ -42,31 +42,40 @@ p{
 .centered__text{
     text-align: center;
 }
+label{
+    font-weight: bold;
+    margin-top: 20px;
+}
 form{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: self-start;
     flex-direction: column;
+    max-width: 645px;
+    margin: 0 auto;
 }
 form input, form select{
-    margin: 20px 0;
-    border: none;
+    margin: 10px 0;
+    margin-bottom: 0;
+    border: solid 1px rgb(238, 238, 238);
     height: 50px;
-    width: 300px;
+    width: 100%;
     color: gray;
     padding: 20px;
     border-radius: 4px;
-    box-shadow: 0 30px 60px -10px #3dc8ff26, 0 18px 36px -18px #15a1ff61;  
+    box-shadow: 0 30px 60px -10px rgba(0,0,0,0.3), 0 18px 36px -18px rgba(0,0,0,0.33);    
+    transition: box-shadow 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 form textarea{
     margin: 20px 0;
-    border: none;
-    min-height: 200px;
-    width: 300px;
+    border: solid 1px rgb(238, 238, 238);
+    min-height: 140px;
+    width: 100%;
     color: gray;
     padding: 20px;
     border-radius: 4px;
-    box-shadow: 0 30px 60px -10px #3dc8ff26, 0 18px 36px -18px #15a1ff61;  
+    box-shadow: 0 30px 60px -10px rgba(0,0,0,0.3), 0 18px 36px -18px rgba(0,0,0,0.33);    
+    transition: box-shadow 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 form button{
     border: none;
@@ -74,10 +83,24 @@ form button{
     height: 50px;
     background: #d13368;
     color: white;
-    box-shadow: 0 30px 60px -10px #3dc8ff26, 0 18px 36px -18px #15a1ff61; 
-    margin-top: 40px;
-    cursor: pointer;
+    box-shadow: 0 30px 60px -10px rgba(0,0,0,0.3), 0 18px 36px -18px rgba(0,0,0,0.33);    
+    transition: box-shadow 0.4s cubic-bezier(0.215, 0.61, 0.355, 1); 
+    margin-top: 20px;
     transition: all ease-in-out 0.3s;
+    cursor: pointer;
+}
+form input:hover, form select:hover, form textarea:hover, form button:hover{
+    box-shadow: 0 30px 60px -10px #d1336826, 0 18px 36px -18px #d1336861;  
+}
+form input.error__field, form textarea.error__field{
+    border-bottom: solid 1px red;
+}
+
+button:disabled,
+button[disabled]{
+  border: 0px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
 form button:hover{
     box-shadow: 0 40px 70px -15px #3dc8ff26, 0 18px 36px -18px #15a1ff61; 
@@ -100,4 +123,20 @@ form .loading__status.success{
 form .loading__status.failed{
     border: solid 1px red;
     opacity: 1;
+}
+form .form__box{
+    border: solid 2px #eaeaea;
+    width: 100%;
+    padding: 50px;
+    margin: 40px 0;
+    border-style: dashed;
+}
+.validation__message{
+    width: 100%;
+    text-align: right;
+}
+.validation__message p{
+    color: red;
+    font-weight: bold;
+    font-size: 11px;
 }

@@ -6,6 +6,10 @@
     color: white;
     padding: 200px 1.45rem;
 }
+.async__call.form__post{
+    background: white;
+    color: black;
+}
 .async__results{
     display: flex;
     flex-wrap: wrap;

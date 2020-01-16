@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Layout from "../layouts/index"
-import "./css/async-call.css"
+import "./css/example.css"
 
 class AsyncPage extends Component {
   // We set the state

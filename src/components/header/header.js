@@ -16,7 +16,7 @@ class Header extends Component {
   componentDidMount(){
     // We check wich path should have a dark theme **only for testing purpose**
     const currentLocation = window.location.pathname;
-    if(currentLocation === '/' || currentLocation === '/async-call' || currentLocation === '/async-form'){
+    if(currentLocation === '/' || currentLocation === '/async-call' || currentLocation === '/async-form' ){
       this.setState({
         darkTheme: true,
       })

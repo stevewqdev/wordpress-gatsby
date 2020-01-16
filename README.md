@@ -1,17 +1,13 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's + Wordpress Boilerplate + ACF
-</h1>
-<hr>
+<p align="center"><a href="https://www.gatsbyjs.org"> <img src="https://www.gatsbyjs.org/monogram.svg" alt="Gatsby" width="60" /> </a></p>
+<h1 align="center">Gatsby's + Wordpress Boilerplate + ACF</h1>
+<hr />
 <h2>Supported features</h2>
 <ul>
 <li>ACF support</li>
 <li>Import SVG as components using the NPM Package <strong>gatsby-plugin-react-svg</strong></li>
 <li>Add Google Fonts using the gatsby-node.js using the NPM Package <strong>gatsby-plugin-prefetch-google-fonts</strong></li>
+<li>Integration with Contact Form 7 plugin (Explained below)</li>
+<li>Integration with Google reCAPTCH v2</li>
 </ul>
 <p>&nbsp;</p>
 <hr />
@@ -64,10 +60,25 @@
 <p><strong>3#</strong> - Be sure to update all ACF fields on the Graphql queries, Graphql will only retrieve explicit fields that already exist, so you have to create the ACF field group and then add them into you queries on the Gatsby files.&nbsp;</p>
 <p><strong>4#</strong> - If you are going to use a group of fields set for all posts or all pages, you will need to create a dummy post that contains all of these fields, if you don't do that and theres at least one field that it's not being used on wordpress but it's added on your query Graphql will scream at you with a huge exception.</p>
 <p><strong>5#</strong> - On the Gatsby structure there are two folders that will render your Pages, one its the folder Pages (duh!), in this folder every .js file you create there will be automatically converted into a page you can access using the file name as the pathname, <strong>example</strong>:&nbsp; your file&nbsp;<strong>Pages</strong>&gt;my-home.js will be rendered if you hit the url "yourpage.com/my-home". All the other pages that does not have an specific file on the <strong>Pages</strong> folder are going to be&nbsp;automatically rendered by the main template file <strong>Pages.js</strong> on the folder <strong>Templates.</strong></p>
-<p>&nbsp;</p>
+<p><strong>6#&nbsp;</strong>Feel free to remove the next files, because they are only there as example pages</p>
+<ul>
+<li><strong>Pages &gt; async-call.js</strong></li>
+<li><strong>Pages &gt; async-form.js</strong></li>
+<li><strong>Pages &gt; form-post.js</strong></li>
+<li><strong>Pages &gt; css &gt; examples.css</strong></li>
+</ul>
+<p>&nbsp;<strong>7#&nbsp;</strong>Custom css for the master template its now being added on the folder <strong>Layouts &gt; custom.css</strong></p>
+<h2>Contact form 7 integration + Google Recaptcha</h2>
+<p><span style="font-size: 14px;">The integration with this plugin its really easy, i will not add a step by step guide because its really simple, i will just give you an overview</span></p>
+<ul>
+<li><span style="font-size: 14px;"><strong>1#</strong> - You need to install and activate <strong>Contact Form 7</strong> plugin&nbsp;</span></li>
+<li><span style="font-size: 14px;"><strong>2#</strong> - Follow this guide to know hos to access the&nbsp;<a href="gatsby.raxo.dev/wp-admin" target="_blank" rel="noopener"><strong>Contact Form 7</strong> API</a></span></li>
+<li><span style="font-size: 14px;"><strong>3#</strong> - Then you can use <a href="https://malcoded.com/posts/react-http-requests-axios/" target="_blank" rel="noopener">this guide</a> to know how to send the post request to your form using axios</span></li>
+<li><span style="font-size: 14px;"><strong>4#</strong> - And for the last part, <a href="https://github.com/sarneeh/reaptcha" target="_blank" rel="noopener">use this package</a> to add the Google Recaptcha into your forms</span></li>
+</ul>
+<p><strong>Note:&nbsp;</strong>You can install a plugin for <strong>Contact Form 7</strong> to save the submissions of your form in your wordpress installation and not just receiving them in your email.</p>
 <h2>Next Features to add into the project</h2>
 <ul>
 <li><span style="font-size: 14px;">Mailchimp integration</span></li>
-<li><span style="font-size: 14px;">Wordpress Contact Form integration&nbsp;</span></li>
-<li><span style="font-size: 14px;">Create a version of this project with woocommerce integration</span></li>
+<li>Create a version of this project with woocommerce integration</li>
 </ul>
