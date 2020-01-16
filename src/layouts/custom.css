@@ -4,12 +4,15 @@ body{
 h1, h2, h3, h4, h5, h6, ul, li{
     font-family: 'Playfair Display', serif;
 }
-p, a, small, i, label, input, textarea, button{
+p, a, small, i, label, input, textarea, button, select{
     font-family: 'Quicksand', sans-serif;
 }
 a, a:hover{
     text-decoration: none;
     color: #d13368;
+}
+p{
+    margin: 0px;
 }
 .master__wrapper{
     margin: 0 auto;
@@ -38,4 +41,63 @@ a, a:hover{
 }
 .centered__text{
     text-align: center;
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+form input, form select{
+    margin: 20px 0;
+    border: none;
+    height: 50px;
+    width: 300px;
+    color: gray;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 30px 60px -10px #3dc8ff26, 0 18px 36px -18px #15a1ff61;  
+}
+form textarea{
+    margin: 20px 0;
+    border: none;
+    min-height: 200px;
+    width: 300px;
+    color: gray;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 30px 60px -10px #3dc8ff26, 0 18px 36px -18px #15a1ff61;  
+}
+form button{
+    border: none;
+    width: 150px;
+    height: 50px;
+    background: #d13368;
+    color: white;
+    box-shadow: 0 30px 60px -10px #3dc8ff26, 0 18px 36px -18px #15a1ff61; 
+    margin-top: 40px;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+}
+form button:hover{
+    box-shadow: 0 40px 70px -15px #3dc8ff26, 0 18px 36px -18px #15a1ff61; 
+}
+form .loading__status{
+    margin-top: 20px;
+    padding: 10px;
+    border: solid 1px gray;
+    border-radius: 2px;
+    opacity: 0;
+}
+form .loading__status.loading{
+    border: solid 1px blue;
+    opacity: 1;
+}
+form .loading__status.success{
+    border: solid 1px green;
+    opacity: 1;
+}
+form .loading__status.failed{
+    border: solid 1px red;
+    opacity: 1;
 }

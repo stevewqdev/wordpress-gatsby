@@ -34,30 +34,6 @@
     box-shadow: 0 30px 60px -10px #3dc8ff26, 0 18px 36px -18px #15a1ff61;  
     top: -2px;
 }
-.async__form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.async__form input{
-    margin: 20px 0;
-    border: none;
-    height: 50px;
-    width: 300px;
-    color: gray;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 30px 60px -10px #3dc8ff26, 0 18px 36px -18px #15a1ff61;  
-}
-.async__form button{
-    border: none;
-    width: 150px;
-    height: 50px;
-    background: #d13368;
-    color: white;
-    box-shadow: 0 30px 60px -10px #3dc8ff26, 0 18px 36px -18px #15a1ff61; 
-}
 .async__results.--aform{
     padding: 0px 0;
 }
