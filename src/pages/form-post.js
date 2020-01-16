@@ -80,7 +80,7 @@ class AsyncPage extends Component {
           <div className="container__base">
             <h1 className="centered__text">Form post + Contact Form 7 plugin</h1>
                 <form className={'async__form'}>
-                  <Reaptcha sitekey="6LejEdAUAAAAANgpcIfcR1PzCbWYmPiiF1GbFcxs" onVerify={this.onVerify} />
+                  <Reaptcha sitekey="6LejEdAUAAAAAIZJkRgRc9C62wu7z5WSrHhf5M6g" onVerify={this.onVerify} />
                   <label htmlFor="your-name">Your name and last name</label>
                   <input type="text" value={this.state.name} onChange={this.handleChange}  id="your-name" name="your-name" required />
                   <label htmlFor="your-email">Email address</label>
