@@ -1,6 +1,5 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+require("dotenv").config({path: `.env.${process.env.NODE_ENV}`})
+
 module.exports = {
   // The site metadata below its not goin the be used because we are pulling this data from wordpress
   siteMetadata: {

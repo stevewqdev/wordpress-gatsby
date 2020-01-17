@@ -7,7 +7,7 @@ class AsyncPage extends Component {
     super(props);
     this.state = {
       value: '',
-      loading: 0, 
+      loading: 'slept', 
       fetchedData: [],
     };
 
@@ -18,7 +18,7 @@ class AsyncPage extends Component {
     event.preventDefault();
 
     this.setState({
-      loading: 1, 
+      loading: 'loading', 
     })
 
     // get the search term from the form input
@@ -32,7 +32,7 @@ class AsyncPage extends Component {
     .catch(error => {
       this.setState({
         fetchedData: false,
-        loading: 2, 
+        loading: 'success', 
       })    
     });
 
@@ -40,12 +40,12 @@ class AsyncPage extends Component {
     if(characters.results !== undefined && characters.results.length > 0){
       this.setState({
         fetchedData: characters.results,
-        loading: 2, 
+        loading: 'success', 
       })
     }else{
       this.setState({
         fetchedData: false,
-        loading: 3, 
+        loading: 'failed', 
       })
     }
   }
@@ -78,20 +78,14 @@ class AsyncPage extends Component {
                   <input type="text" className={this.state.value} value={this.state.value} onChange={this.handleChange} id="name" name="name" required />
                   <button type="submit" onClick={this.handleSubmit}>Search</button>
                 </form>
-                <hr></hr>
                 <div className="async__results --aform result__wrapper centered__text">
                 {
-                    loading === 0
-                    ? <p> Waiting for you to search something</p>
-                    : ''
-                }
-                {
-                    loading === 1
+                    loading === 'loading'
                     ? <p> Searching in Rick's database...</p>
                     : ''
                 }
                 {
-                    loading === 2
+                    loading === 'success'
                     ? fetchedData
                       ? fetchedData.map(character => 
                           <div key={character.name} className={'the__result ' + character.name} >
@@ -99,7 +93,7 @@ class AsyncPage extends Component {
                               <p><b>{character.name}</b></p>
                           </div>
                         )
-                      : <p> Uppps it seems we are having connecting to Rick's database...</p>
+                      : <p> Uppps it seems we are having trouble connecting to Rick's database...</p>
                     : ''
                 }
                 </div>

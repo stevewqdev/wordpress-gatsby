@@ -8,6 +8,7 @@
 <li>Add Google Fonts using the gatsby-node.js using the NPM Package <strong>gatsby-plugin-prefetch-google-fonts</strong></li>
 <li>Integration with Contact Form 7 plugin (Explained below)</li>
 <li>Integration with Google reCAPTCH v2</li>
+<li>Access Yoast SEO data trought graphql</li>
 </ul>
 <p>&nbsp;</p>
 <hr />
@@ -25,7 +26,7 @@
 <li>Open the&nbsp;<code>.env.development and .env.production</code>&nbsp;file and change the variables&nbsp;GATSBY_WP_API_LINK and&nbsp;GATSBY_WP_API_URL with the url's that you are going to use on your project</li>
 <li>Run&nbsp;<code>npm develop</code>&nbsp;-- <em>this command will run your Gatsby installation on your local enviroment</em></li>
 </ol>
-<p><em><strong>Important:</strong> Notice that there are two .env files, one its for you to use on your local development and the other its for the production environment, to make it work with netlify you must upload the envs file to your repository so <strong>BE SURE TO DON'T ADD ANY SENSITIVE INFORMATION ON THE .ENV FILES.&nbsp;</strong></em></p>
+<p><em><strong>Important:</strong>&nbsp;Don't upload the .env files to your server, you can use <a href="https://docs.netlify.com/configure-builds/environment-variables/" target="_blank" rel="noopener">Netlify Build Environment Variables</a> if you need if you are going to do the deploy there.</em></p>
 <p>Also, in case you wonder, we are using the <a href="https://www.npmjs.com/package/dotenv" target="_blank" rel="noopener">NPM dotenv package</a> to manage the .env variables within the whole Gatsby installation.</p>
 <h2>Install Wordpress<span style="font-size: 14px;">&nbsp;</span></h2>
 <p>Download and install the latest wordpress version on the server that you prefer. On our current demo site we are using a stripped down template for wordpress that it will only render blank on the wordpress url.</p>
@@ -37,6 +38,11 @@
 <li>Access ACF fields using the WP API - <a href="https://wordpress.org/plugins/acf-to-rest-api/" target="_blank" rel="noopener">ACF to REST API</a></li>
 <li><a href="https://wordpress.org/plugins/webhook-netlify-deploy/" target="_blank" rel="noopener">Deploy Webhook Button</a></li>
 <li>Access to wp menu data using the WP API - <a href="https://wordpress.org/plugins/wp-rest-api-v2-menus/" target="_blank" rel="noopener">WP REST API Menus</a></li>
+</ul>
+<p>If you want to access the Yoast Seo data trought Graphql you need to download and installa this two plugins. Once you do that you will be able to access Yoast data for each page or post trought graphql</p>
+<ul>
+<li><a href="https://yoast.com/wordpress/plugins/seo/#utm_source=wordpress.org&amp;utm_medium=referral&amp;utm_term=yoast-seo&amp;utm_content=details&amp;utm_campaign=wordpress-org-ad" target="_blank" rel="noopener">Yoast SEO</a></li>
+<li><a href="https://github.com/niels-garve/yoast-to-rest-api" target="_blank" rel="noopener">Yoast to REST API</a></li>
 </ul>
 <p>After installing the ACF to REST API plugin and activate it, go to settings -&gt; permalink -&gt; Scroll down to the section&nbsp;ACF to REST API and on the&nbsp;<strong>Request Version&nbsp;</strong>select V2</p>
 <h2>Netlify</h2>
@@ -60,7 +66,7 @@
 <p><strong>3#</strong> - Be sure to update all ACF fields on the Graphql queries, Graphql will only retrieve explicit fields that already exist, so you have to create the ACF field group and then add them into you queries on the Gatsby files.&nbsp;</p>
 <p><strong>4#</strong> - If you are going to use a group of fields set for all posts or all pages, you will need to create a dummy post that contains all of these fields, if you don't do that and theres at least one field that it's not being used on wordpress but it's added on your query Graphql will scream at you with a huge exception.</p>
 <p><strong>5#</strong> - On the Gatsby structure there are two folders that will render your Pages, one its the folder Pages (duh!), in this folder every .js file you create there will be automatically converted into a page you can access using the file name as the pathname, <strong>example</strong>:&nbsp; your file&nbsp;<strong>Pages</strong>&gt;my-home.js will be rendered if you hit the url "yourpage.com/my-home". All the other pages that does not have an specific file on the <strong>Pages</strong> folder are going to be&nbsp;automatically rendered by the main template file <strong>Pages.js</strong> on the folder <strong>Templates.</strong></p>
-<p><strong>6#&nbsp;</strong>Feel free to remove the next files, because they are only there as example pages</p>
+<p><strong>6#&nbsp;</strong>If you see the next files on the cloned repot feel free to remove them, because they are only there as example pages</p>
 <ul>
 <li><strong>Pages &gt; async-call.js</strong></li>
 <li><strong>Pages &gt; async-form.js</strong></li>

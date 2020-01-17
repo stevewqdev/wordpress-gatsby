@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: black;
-    color: white;
+    background: white;
+    color: black;
     padding: 200px 1.45rem;
 }
 .async__call.form__post{
@@ -39,7 +39,7 @@
     top: -2px;
 }
 .async__results.--aform{
-    padding: 0px 0;
+    padding: 70px 0;
 }
 .async__results .the__result p{
     max-width: 170px;

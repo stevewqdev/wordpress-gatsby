@@ -93,7 +93,7 @@ form input:hover, form select:hover, form textarea:hover, form button:hover{
     box-shadow: 0 30px 60px -10px #d1336826, 0 18px 36px -18px #d1336861;  
 }
 form input.error__field, form textarea.error__field{
-    border-bottom: solid 1px red;
+    border-bottom: solid 1px #ffa7a7;
 }
 
 button:disabled,

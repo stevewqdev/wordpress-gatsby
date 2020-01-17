@@ -16,7 +16,7 @@ class Header extends Component {
   componentDidMount(){
     // We check wich path should have a dark theme **only for testing purpose**
     const currentLocation = window.location.pathname;
-    if(currentLocation === '/' || currentLocation === '/async-call' || currentLocation === '/async-form' ){
+    if(currentLocation === '/'){
       this.setState({
         darkTheme: true,
       })
@@ -30,7 +30,7 @@ class Header extends Component {
   render() {
       // We can detect the route change to set different variables based on that **only for testing purpose**
       globalHistory.listen(({ location }) => {
-        if(location.pathname === '/' || location.pathname === '/async-call' || location.pathname === '/async-form'){
+        if(location.pathname === '/'){
           this.setState({
             darkTheme: true,
           })

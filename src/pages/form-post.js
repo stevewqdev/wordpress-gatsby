@@ -11,20 +11,26 @@ class AsyncPage extends Component {
     super(props);
     let startFood = 'Pizza' 
     this.state = {
+      // form states
       name: '',
       email: '',
       food: startFood,
       subject: `Order of ${startFood}!`,
       message: `Hi i would like to place a new order of ${startFood}, can you send me one?`,
-      loading: 'slept',
-      verified: false, // <-- Recaptcha state
       errorForm: 'error__field',
-      submit: false, 
       verifiedEmail: false,
+      // loading states
+      loading: 'slept',
+      //recaptcha states
+      verified: false,
+      recaptchaKey: `${process.env.GOOGLE_REV2_KEY}`,
+      submit: false, 
+      showRecaptcha: true,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   // We handle the change on each of the form inputs
@@ -49,10 +55,11 @@ class AsyncPage extends Component {
     }
   }
 
-  // Verify the Recaptcha
+  // Verify the Recaptcha and hide it
   onVerify = recaptchaResponse => {
     this.setState({
-      verified: true
+      verified: true,
+      showRecaptcha: false
     });
   };
 
@@ -66,7 +73,7 @@ class AsyncPage extends Component {
   handleSubmit = async event => {
     event.preventDefault();
     const state = this.state; 
-    
+
     // set the state of the form to submitted
     this.setState({submit: true});
     
@@ -94,16 +101,25 @@ class AsyncPage extends Component {
       form.set('your-message', state.message)
       form.set('your-food', state.food)
   
-      // we make the post request to the link
+      //we make the post request to the api url
       axios.post('https://gatsby.raxo.dev/wp-json/contact-form-7/v1/contact-forms/77/feedback', form, {
         headers: { 'Content-Type': 'multipart/form-data' },
       }).then(response => {
           this.setState({loading: 'success'});
+          // We reset the recaptcha field
+          this.captcha.reset()
+          this.setState({
+            showRecaptcha: true,
+            verified: false,
+          });
       }).catch(err => {
           this.setState({loading: 'failed'});
       })
+
+
     }else{
       this.setState({loading: 'failed'});
+      document.getElementById("order__food").scrollIntoView();
     }
   }
 
@@ -116,14 +132,14 @@ class AsyncPage extends Component {
           <div className="container__base">
             <h1 className="centered__text">Form post + Contact Form 7 plugin</h1>
             <p className="centered__text">Please fill up the fields to enabled the sent button</p>
-                <form className={'async__form'}>
+                <form className={'async__form'} id={'order__food'}>
                   <label htmlFor="your-name">Your name and last name</label>
                   <input type="text" 
                   className={
                     this.state.submit === true
                     ? this.state.name.length > 3
                       ? ''
-                      : <p><small>Please add your name and your last name</small></p>
+                      : 'error__field'
                     : ''
                   } 
                   value={this.state.name} onChange={this.handleChange}  id="your-name" name="your-name" required />
@@ -142,7 +158,7 @@ class AsyncPage extends Component {
                     this.state.submit === true
                     ? this.state.verifiedEmail === true
                       ? ''
-                      : <p><small>Please add your email address!</small></p>
+                      : 'error__field'
                     : ''
                   } 
                   value={this.state.email} onChange={this.handleChange} id="your-email" name="your-email" required />
@@ -170,7 +186,7 @@ class AsyncPage extends Component {
                         this.state.submit === true
                         ? this.state.subject.length > 10
                           ? ''
-                          : <p><small>Please don't leave the subject blank!</small></p>
+                          : 'error__field'
                         : ''
                       }
                     </div>
@@ -186,9 +202,7 @@ class AsyncPage extends Component {
                       }
                     </div>
                   </div>
-                  <hr></hr>
-                  <Reaptcha sitekey="6LfFE9AUAAAAAJq5au9qA7-mC3iLPXTyGow9xOwc" onVerify={this.onVerify} />
-                  <hr></hr>
+                  <Reaptcha ref={e => (this.captcha = e)} className={this.state.showRecaptcha ? '' : 'hidden__element'} sitekey={process.env.GOOGLE_REV2_KEY} onVerify={this.onVerify} />
                   <button type="submit" onClick={this.handleSubmit} disabled={!this.state.verified}>Send!</button>
                   <div className={'loading__status ' + loading }>
                     {
