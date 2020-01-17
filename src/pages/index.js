@@ -14,6 +14,7 @@ class HomePage extends Component {
       <Layout>
         <Helmet>
             <meta charSet="utf-8" />
+            <meta name="description" content={yoastFields.yoast_wpseo_metadesc}/>
             <title>{yoastFields.yoast_wpseo_title}</title>
             <link rel="canonical" href="http://mysite.com/example" />
         </Helmet>
@@ -67,6 +68,7 @@ query MyQuery {
         }
         yoast_meta {
           yoast_wpseo_title
+          yoast_wpseo_metadesc
         }
       }
     }
