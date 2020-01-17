@@ -4,10 +4,10 @@
 <h2>Supported features</h2>
 <ul>
 <li>ACF support</li>
-<li>Import SVG as components using the NPM Package <strong>gatsby-plugin-react-svg</strong></li>
-<li>Add Google Fonts using the gatsby-node.js using the NPM Package <strong>gatsby-plugin-prefetch-google-fonts</strong></li>
+<li>Import SVG as components using the NPM Package <a href="https://www.gatsbyjs.org/packages/gatsby-plugin-react-svg/" target="_blank" rel="noopener"><strong>gatsby-plugin-react-svg</strong></a></li>
+<li>Add Google Fonts using the gatsby-node.js using the NPM Package <a href="https://www.gatsbyjs.org/packages/gatsby-plugin-prefetch-google-fonts/" target="_blank" rel="noopener"><strong>gatsby-plugin-prefetch-google-fonts</strong></a></li>
 <li>Integration with Contact Form 7 plugin (Explained below)</li>
-<li>Integration with Google reCAPTCH v2</li>
+<li>Integration with Google reCAPTCHA v2</li>
 <li>Access Yoast SEO data trought graphql</li>
 </ul>
 <p>&nbsp;</p>
