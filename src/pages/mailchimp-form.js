@@ -20,7 +20,7 @@ class MailchimpForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
-  }
+  } 
 
   // function for email validation
   validateEmail(email) {
@@ -81,8 +81,11 @@ class MailchimpForm extends Component {
         <div className="async__call form__post">
           <div className="container__base">
             <h1 className="centered__text">Form post + Contact Form 7 plugin</h1>
+            
             <p className="centered__text">Please fill up the fields to enabled the sent button</p>
                 <form className={'async__form'} >
+                <hr></hr>
+                  <p>This form it's only for testing purpose, emails subscribed to this list will be deleted</p>
                   <label htmlFor="your-name">Your name</label>
                   <input type="text"  className={submit === true ? name.length > 3 ? '' : 'error__field' : ''} 
                   value={name} onChange={this.handleChange}  id="your-name" name="your-name" required />
