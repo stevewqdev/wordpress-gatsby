@@ -35,24 +35,20 @@ class AsyncPage extends Component {
 
   // We handle the change on each of the form inputs
   handleChange(event) {
-    if(event.target.name === 'your-name'){
-        this.setState({name: event.target.value});
-    }
-    if(event.target.name === 'your-email'){
-        this.setState({email: event.target.value});
-    }
-    if(event.target.name === 'your-subject'){
-        this.setState({subject: event.target.value});
-    }
-    if(event.target.name === 'your-message'){
-        this.setState({message: event.target.value});
-    }
-    if(event.target.name === 'your-food'){
+    // On this example all field name start with "your-" (name, email, subject etc...) , so we can remove that from the string and use the rest as the
+    // state variable name, this way we can the same code for de change on all fields. In this case the food field will need some extra work and for that
+    // we need the if statement
+    const value = event.target.name.replace('your-', '');
+
+    if(event.target.name !== 'your-food'){
+      this.setState({[value]: event.target.value});
+    }else{
       let startFood = event.target.value;
-      this.setState({food: event.target.value});
+      this.setState({[value]: event.target.value});
       this.setState({subject: `Order of ${startFood}!`});
       this.setState({message: `Hi i would like to place a new order of ${startFood}, can you send me one?`});
     }
+
   }
 
   // Verify the Recaptcha and hide it
@@ -71,7 +67,9 @@ class AsyncPage extends Component {
 
   // We get and set the form data
   handleSubmit = async event => {
+    // Prevent the default submit behavior
     event.preventDefault();
+    // Create a variable to avoid the pain of write this.state.variable
     const state = this.state; 
 
     // set the state of the form to submitted
@@ -115,8 +113,6 @@ class AsyncPage extends Component {
       }).catch(err => {
           this.setState({loading: 'failed'});
       })
-
-
     }else{
       this.setState({loading: 'failed'});
       document.getElementById("order__food").scrollIntoView();
@@ -124,7 +120,8 @@ class AsyncPage extends Component {
   }
 
   render() {
-    const {loading} = this.state
+    // we destructure the variables from the state
+    const {loading, submit, name, email, message, verifiedEmail, subject} = this.state
 
     return (
       <Layout>
@@ -136,17 +133,17 @@ class AsyncPage extends Component {
                   <label htmlFor="your-name">Your name and last name</label>
                   <input type="text" 
                   className={
-                    this.state.submit === true
-                    ? this.state.name.length > 3
+                    submit === true
+                    ? name.length > 3
                       ? ''
                       : 'error__field'
                     : ''
                   } 
-                  value={this.state.name} onChange={this.handleChange}  id="your-name" name="your-name" required />
+                  value={name} onChange={this.handleChange}  id="your-name" name="your-name" required />
                   <div className="validation__message">
                     {
-                      this.state.submit === true
-                      ? this.state.name.length > 3
+                      submit === true
+                      ? name.length > 3
                         ? ''
                         : <p><small>Please add your name and your last name</small></p>
                       : ''
@@ -155,8 +152,8 @@ class AsyncPage extends Component {
                   <label htmlFor="your-email">Email address</label>
                   <input type="text" 
                   className={
-                    this.state.submit === true
-                    ? this.state.verifiedEmail === true
+                    submit === true
+                    ? verifiedEmail === true
                       ? ''
                       : 'error__field'
                     : ''
@@ -164,8 +161,8 @@ class AsyncPage extends Component {
                   value={this.state.email} onChange={this.handleChange} id="your-email" name="your-email" required />
                   <div className="validation__message">
                     {
-                      this.state.submit === true
-                      ? this.state.verifiedEmail === true
+                      submit === true
+                      ? verifiedEmail === true
                         ? ''
                         : <p><small>Please add your email address!</small></p>
                       : ''
@@ -180,22 +177,22 @@ class AsyncPage extends Component {
                   </select>
                   <div className="form__box">
                     <label htmlFor="your-subject"><small>Order subject</small></label>
-                    <input type="text" className={this.state.subject.length > 0 ? 'passed__field' : 'error__field'} value={this.state.subject} onChange={this.handleChange} id="your-subject" name="your-subject" required disabled/>
+                    <input type="text" className={subject.length > 0 ? 'passed__field' : 'error__field'} value={subject} onChange={this.handleChange} id="your-subject" name="your-subject" required disabled/>
                     <div className="validation__message">
                       {
-                        this.state.submit === true
-                        ? this.state.subject.length > 10
+                        submit === true
+                        ? subject.length > 10
                           ? ''
                           : 'error__field'
                         : ''
                       }
                     </div>
                     <label htmlFor="your-message"><small>Order description</small></label>
-                    <textarea value={this.state.message} className={this.state.message.length > 0 ? 'passed__field' : 'error__field'} onChange={this.handleChange} id="your-message" name="your-message" required disabled></textarea>
+                    <textarea value={message} className={message.length > 0 ? 'passed__field' : 'error__field'} onChange={this.handleChange} id="your-message" name="your-message" required disabled></textarea>
                     <div className="validation__message">
                       {
-                        this.state.submit === true
-                        ? this.state.message.length > 20
+                        submit === true
+                        ? message.length > 20
                           ? ''
                           : <p><small>Please add a message for the team</small></p>
                         : ''

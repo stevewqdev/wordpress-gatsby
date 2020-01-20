@@ -33,6 +33,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-mailchimp`,
+      options: {
+          endpoint: `${process.env.MAILCHIMP_KEY}`, 
+      },
+    },
+    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
@@ -65,6 +71,7 @@ module.exports = {
         ],
       },
     },
+    
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`, 
     {
