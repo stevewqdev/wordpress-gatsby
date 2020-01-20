@@ -5,12 +5,20 @@
 <h2>Supported features</h2>
 <ul>
 <li>ACF support</li>
+<<<<<<< HEAD
 <li><a href="https://www.gatsbyjs.org/packages/gatsby-plugin-react-svg/" target="_blank" rel="noopener">Import SVG as components</a>&nbsp;</li>
 <li><a href="https://www.gatsbyjs.org/packages/gatsby-plugin-prefetch-google-fonts/">Google Fonts Prefecth Support</a></li>
 <li>Integration with Contact Form 7 plugin <strong>(Explained below)</strong></li>
 <li>Integration with Google reCAPTCHA v2&nbsp;<strong>(Explained below)</strong></li>
 <li>Access Yoast SEO data trought graphql&nbsp;<strong>(Explained below)</strong></li>
 <li>Mailchimp Gatsby Integration&nbsp;<strong>(Explained below)</strong></li>
+=======
+<li>Import SVG as components using the NPM Package <a href="https://www.gatsbyjs.org/packages/gatsby-plugin-react-svg/" target="_blank" rel="noopener"><strong>gatsby-plugin-react-svg</strong></a></li>
+<li>Add Google Fonts using the gatsby-node.js using the NPM Package <a href="https://www.gatsbyjs.org/packages/gatsby-plugin-prefetch-google-fonts/" target="_blank" rel="noopener"><strong>gatsby-plugin-prefetch-google-fonts</strong></a></li>
+<li>Integration with Contact Form 7 plugin (Explained below)</li>
+<li>Integration with Google reCAPTCHA v2</li>
+<li>Access Yoast SEO data trought graphql</li>
+>>>>>>> 3ee29f9469065fb40cbbdccf297f6b339eda87b0
 </ul>
 <h2><a href="https://eager-albattani-669cc8.netlify.com/" target="_blank" rel="noopener">Demo Site</a></h2>
 <hr />
