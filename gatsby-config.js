@@ -14,8 +14,8 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Playfair Display`,
-            variants: [`400`, `700`]
+            family: `Quicksand`,
+            subsets: [`latin`]
           },
           {
             family: `Quicksand`,
@@ -23,10 +23,18 @@ module.exports = {
           },
           {
             family: `Playfair Display`,
+            variants: [`400`, `700`]
+          },
+          {
+            family: `Playfair Display`,
             subsets: [`latin`]
           },
           {
-            family: `Quicksand`,
+            family: `Abril Fatface`,
+            variants: [`400`]
+          },
+          {
+            family: `Abril Fatface`,
             subsets: [`latin`]
           },
         ],

@@ -13,6 +13,7 @@
 <li>Mailchimp Gatsby Integration&nbsp;<strong>(Explained below)</strong></li>
 </ul>
 <h2><a href="https://eager-albattani-669cc8.netlify.com/" target="_blank" rel="noopener">Demo Site</a></h2>
+<p>If you want to check the example files from the demo site you can access the demo site <a href="https://github.com/stevewqdev/wordpress-gatsby/tree/demo_site_branch" target="_blank" rel="noopener">repositorie</a></p>
 <hr />
 <p><strong>Important: To use Gatsby + React you should at least have a good background on javascript because it can get a little confusing.</strong></p>
 <p>This is a starter boilertplate powered by the Wordpress API and the blazing fast static site generator Gatsby. Also will let you use the awesome plugin ACF</p>
