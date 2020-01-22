@@ -3,9 +3,13 @@ body{
 }
 h1, h2, h3, h4, h5, h6, ul, li{
     font-family: 'Playfair Display', serif;
+    margin: 10px 0;
 }
 p, a, small, i, label, input, textarea, button, select{
     font-family: 'Quicksand', sans-serif;
+}
+.abril__font{
+    font-family: 'Abril Fatface', cursive;
 }
 a, a:hover{
     text-decoration: none;

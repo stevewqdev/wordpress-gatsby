@@ -16,18 +16,17 @@ class HomePage extends Component {
             <meta charSet="utf-8" />
             <meta name="description" content={yoastFields.yoast_wpseo_metadesc}/>
             <title>{yoastFields.yoast_wpseo_title}</title>
-            <link rel="canonical" href="https://mysite.com/example" />
+            <link rel="canonical" href={yoastFields.yoast_wpseo_canonical} />
         </Helmet>
         <div className="home__page">
           <div className="home__page__content container__base">
-            <h1 dangerouslySetInnerHTML={{__html: home.title}}/>
+            <h1 className={'floating__title'} dangerouslySetInnerHTML={{__html: acfFields.title}}/>
             <div dangerouslySetInnerHTML={{__html: home.content}}/>
-            <p dangerouslySetInnerHTML={{__html: acfFields.title}}/>
-            <p className="r__fuchsia">
-              <small>
-                <b dangerouslySetInnerHTML={{__html: home.date}}/>
-              </small>
-            </p>
+            <div>
+              <a href={acfFields.button[0].url} target="_BLANK">
+                <button className={'btn --main'}>{acfFields.button[0].text}</button>
+              </a>
+            </div>
           </div>
         </div>
       </Layout>
@@ -63,12 +62,17 @@ query MyQuery {
         title
         content
         date(formatString: "MMMM DD, YYYY")
-        acf{
+        acf {
           title
+          button {
+            text
+            url
+          }
         }
         yoast_meta {
           yoast_wpseo_title
           yoast_wpseo_metadesc
+          yoast_wpseo_canonical
         }
       }
     }

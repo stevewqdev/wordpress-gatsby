@@ -80,7 +80,7 @@ class MailchimpForm extends Component {
       <Layout>
         <div className="async__call form__post">
           <div className="container__base">
-            <h1 className="centered__text">Form post + Contact Form 7 plugin</h1>
+            <h1 className="centered__text">Mailchimp subscribe form</h1>
             
             <p className="centered__text">Please fill up the fields to enabled the sent button</p>
                 <form className={'async__form'} >

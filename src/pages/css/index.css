@@ -5,4 +5,41 @@
     padding: 70px 1.45rem 70px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+}
+.btn.--main{
+    border: none;
+    width: auto;
+    padding: 10px 20px;
+    background: #d13368;
+    color: white;
+    box-shadow: 0 30px 60px -10px rgba(0,0,0,0.3), 0 18px 36px -18px rgba(0,0,0,0.33);
+    -webkit-transition: box-shadow 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: box-shadow 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    margin-top: 20px;
+    -webkit-transition: all ease-in-out 0.3s;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+}
+.home__page__content{
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+.home__page__content p{
+    margin: 10px;
+}
+.home__page .floating__title{
+    position: absolute;
+    left: -25px;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    text-transform: uppercase;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    height: 0;
+    letter-spacing: 4px;
 }
