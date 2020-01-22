@@ -37,14 +37,16 @@ class PaginationController extends Component {
                 </div>
                 <div className={'paginated__previous__next'}>
                   {
-                    nextPage === 2
+                    // This is the Previous page button
+                    parseInt(nextPage) === 2
                     ? ''
                     : <div className={'previousLink  ' + nextPage}>
                           <NavLink test={props.previous} url={props.previousUrl} text="Go to Previous Page" />
                       </div>
                   }
                   {
-                    nextPage > props.pageTotal
+                     // This is the Next page button
+                    parseInt(nextPage) > props.pageTotal
                     ? ''
                     : <div className="nextLink">
                           <NavLink test={props.next} url={props.nextUrl} text="Go to Next Page" />
