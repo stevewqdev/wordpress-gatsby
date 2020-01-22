@@ -16,7 +16,7 @@ class HomePage extends Component {
             <meta charSet="utf-8" />
             <meta name="description" content={yoastFields.yoast_wpseo_metadesc}/>
             <title>{yoastFields.yoast_wpseo_title}</title>
-            <link rel="canonical" href="http://mysite.com/example" />
+            <link rel="canonical" href="https://mysite.com/example" />
         </Helmet>
         <div className="home__page">
           <div className="home__page__content container__base">
