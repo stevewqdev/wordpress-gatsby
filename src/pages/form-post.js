@@ -59,6 +59,8 @@ class AsyncPage extends Component {
     });
   };
 
+
+  
   // function for email validation
   validateEmail(email) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -117,6 +119,24 @@ class AsyncPage extends Component {
       this.setState({loading: 'failed'});
       document.getElementById("order__food").scrollIntoView();
     }
+  }
+
+  componentWillUnmount(){
+    let startFood = 'Pizza' 
+    this.setState({
+      name: '',
+      email: '',
+      food: startFood,
+      subject: `Order of ${startFood}!`,
+      message: `Hi i would like to place a new order of ${startFood}, can you send me one?`,
+      errorForm: 'error__field',
+      verifiedEmail: false,
+      loading: 'slept',
+      verified: false,
+      recaptchaKey: `${process.env.GOOGLE_REV2_KEY}`,
+      submit: false, 
+      showRecaptcha: true,
+    })
   }
 
   render() {

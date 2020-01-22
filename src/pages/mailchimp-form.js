@@ -72,6 +72,17 @@ class MailchimpForm extends Component {
     }
   }
 
+  componentWillUnmount(){
+    this.setState({
+      email: '',
+      name: '',
+      lastname: '',
+      loading: 'slept',
+      submit: false,
+      mailchimpResponse: '',
+    })
+  }
+
   render() {
     // we destructure the variables from the state
     const {loading, submit, name, email, lastname, mailchimpResponse} = this.state

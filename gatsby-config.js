@@ -15,10 +15,6 @@ module.exports = {
         fonts: [
           {
             family: `Quicksand`,
-            subsets: [`latin`]
-          },
-          {
-            family: `Quicksand`,
             variants: [`400`,  `500` ,  `700`]
           },
           {
@@ -30,11 +26,7 @@ module.exports = {
             subsets: [`latin`]
           },
           {
-            family: `Abril Fatface`,
-            variants: [`400`]
-          },
-          {
-            family: `Abril Fatface`,
+            family: `Quicksand`,
             subsets: [`latin`]
           },
         ],
@@ -79,9 +71,8 @@ module.exports = {
         ],
       },
     },
-    
+    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`, 
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

@@ -26,7 +26,7 @@ class PaginationController extends Component {
                   pages.length > 0
                   ?
                   pages.map((index) => (
-                    <div className={nextPage-1 === index+1 ? 'paginated__list current__page' :'paginated__list' }>
+                    <div key={index} className={nextPage-1 === index+1 ? 'paginated__list current__page' :'paginated__list' }>
                       <Link to={index+1 === 1 ? `/blog/` : `/blog/${index+1}`}>
                         {index+1}
                       </Link>

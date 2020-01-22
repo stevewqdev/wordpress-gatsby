@@ -54,6 +54,14 @@ class AsyncPage extends Component {
     this.setState({value: event.target.value});
   }
 
+  componentWillUnmount(){
+    this.setState({
+      value: '',
+      loading: 'slept', 
+      fetchedData: [],
+    })
+  }
+
   render() {
     const {loading, fetchedData} = this.state
     const colors = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 

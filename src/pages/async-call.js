@@ -32,6 +32,14 @@ class AsyncPage extends Component {
         })
   }
 
+  componentWillUnmount(){
+    this.setState({
+      loading: true, 
+      error: false,
+      fetchedData: [],
+    })
+  }
+
   render() {
 
     const {loading, fetchedData} = this.state
@@ -59,7 +67,7 @@ class AsyncPage extends Component {
                 : fetchedData
                   ? fetchedData.map(character => 
                       <div key={character.character} className={'the__result ' + character.character} >
-                          <img alt={'image of ' + character.character} src={character.image} lazyload style={{ backgroundColor: colors[Math.floor(Math.random()*colors.length)]}} />
+                          <img alt={'image of ' + character.character} src={character.image} lazyload="true" style={{ backgroundColor: colors[Math.floor(Math.random()*colors.length)]}} />
                           <p><b>{character.character}</b></p>
                       </div>
                     )

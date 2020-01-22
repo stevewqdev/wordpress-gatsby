@@ -45,3 +45,14 @@
 .async__results .the__result p{
     max-width: 170px;
 }
+.form__logo img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100px;
+}
+.form__logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

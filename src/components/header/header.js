@@ -27,6 +27,12 @@ class Header extends Component {
     }
   }
 
+  componentWillUnmount(){
+    this.setState({
+      darkTheme: true,
+    })
+  }
+
   render() {
       // We can detect the route change to set different variables based on that **only for testing purpose**
       globalHistory.listen(({ location }) => {
