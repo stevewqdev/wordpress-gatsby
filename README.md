@@ -14,6 +14,7 @@
 </ul>
 <h2><a href="https://eager-albattani-669cc8.netlify.com/" target="_blank" rel="noopener">Demo Site</a></h2>
 <p>If you want to check the example files from the demo site you can access the demo site <a href="https://github.com/stevewqdev/wordpress-gatsby/tree/demo_site_branch" target="_blank" rel="noopener">repositorie</a></p>
+<p>At the bottom you can read how to get the Wordpress custom logo and favicon from customization menu.&nbsp;</p>
 <hr />
 <p><strong>Important: To use Gatsby + React you should at least have a good background on javascript because it can get a little confusing.</strong></p>
 <p>This is a starter boilertplate powered by the Wordpress API and the blazing fast static site generator Gatsby. Also will let you use the awesome plugin ACF</p>
@@ -79,6 +80,27 @@
 <p><span style="font-size: 14px;"><strong>Note:&nbsp;</strong>You can install a plugin for <strong>Contact Form 7</strong> to save the submissions of your form in your wordpress installation and not just receiving them in your email.</span></p>
 <h2>Mailchimp Integration</h2>
 <p>Mailchimp integration it's a little limited but enough for basic subscribing on your page. For this we are going to use a Gatsby Plugin that you can find <a href="https://www.gatsbyjs.org/packages/gatsby-plugin-mailchimp/" target="_blank" rel="noopener">here</a></p>
+<h2>Getting the Wordpress logo and favicon</h2>
+<p>Probably you might gonna get the logo and favicon from the ACF fields for dynamic purposes like having multiple logos for different color schemes, but maybe you want to pull the logo and the favicon from the wordpress customization menu.</p>
+<p>I was not able to find an straightfoward way to pull that data from graphql but i managed to get it, the way i did it was:</p>
+<ol>
+<li>Upload your logo and favicon to wordpress gallery</li>
+<li>Update the title of your logo image to "logo" (without the quotes)</li>
+<li>Update the title of your favicon image to "favicon" (without the quotes)</li>
+<li>Now if you installed all the plugins i mentioned above you can query both images with graphql like this: <br /><br /> <code>
+ favicon: allWordpressWpMedia(filter: {title: {eq: "favicon"}}) { <br />
+  &nbsp;&nbsp; nodes {<br />
+  &nbsp;&nbsp; source_url<br />
+&nbsp;&nbsp; title<br />
+&nbsp;&nbsp;}<br />
+}<br /></code><br /> <code>
+ favicon: allWordpressWpMedia(filter: {title: {eq: "logo"}}) { <br />
+  &nbsp;&nbsp; nodes {<br />
+  &nbsp;&nbsp; source_url<br />
+&nbsp;&nbsp; title<br />
+&nbsp;&nbsp;}<br />
+}<br />&nbsp;<br /></code></li>
+</ol>
 <hr />
 <h2>Next Features to add into the project</h2>
 <ul>
