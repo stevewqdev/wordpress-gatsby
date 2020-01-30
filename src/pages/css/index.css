@@ -1,7 +1,7 @@
 .home__page{
     min-height: 81vh;
-    background: black;
-    color: white;
+    background: white;
+    color: black;
     padding: 70px 1.45rem 70px;
     display: flex;
     align-items: center;

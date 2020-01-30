@@ -4,58 +4,58 @@ import MainMenu from "../menu/mainMenu"
 import SocialMenu from "../social-menu/socialMenu"
 import { globalHistory } from "@reach/router"
 import "./header.css"
+// Get the svg logo as a component
 import LogoSvgBlack from "./../../images/svg/logo.svg"
 import LogoSvgwhite from "./../../images/svg/logo-white.svg"
 
+
+
 class Header extends Component {
+  
   constructor(props) {
     super(props);
-    this.state = { darkTheme: true };
+    this.state = { darkTheme: false };
   }
 
-  componentDidMount(){
-    // We check wich path should have a dark theme **only for testing purpose**
-    const currentLocation = window.location.pathname;
-    if(currentLocation === '/'){
-      this.setState({
-        darkTheme: true,
-      })
-    }else{
-      this.setState({
-        darkTheme: false,
-      })
+  // This functions gets the current pathname to match the current page item
+  markCurrentPageItem(){
+    let currentUrl = globalHistory.location.pathname
+    let currentPageItem = document.getElementById(currentUrl);
+    if(currentPageItem){
+      if(currentUrl === '/'){
+        currentPageItem.classList.add('its__home__page');
+      }else{
+        currentPageItem.classList.add('current__page');
+      }
     }
   }
 
-  componentWillUnmount(){
-    this.setState({
-      darkTheme: true,
-    })
+  componentDidMount(){
+    this.markCurrentPageItem()
   }
 
   render() {
-      // We can detect the route change to set different variables based on that **only for testing purpose**
-      globalHistory.listen(({ location }) => {
-        if(location.pathname === '/'){
-          this.setState({
-            darkTheme: true,
-          })
-        }else{
-          this.setState({
-            darkTheme: false,
-          })
-        }
-      })
-
+      let wpLogo = false; 
+      if(this.props.siteLogo){
+        wpLogo = this.props.siteLogo
+      }
+      
       const title = this.props.siteTitle;
       return (
         <div className="header__wrapper">
-          <div className="brand__wrapper">
+          <div className="brand__wrapper" id="/">
             <Link to="/" className="brand__link">
               {
-                this.state.darkTheme
-                ?<LogoSvgwhite title={title} className="brand__svg__logo"></LogoSvgwhite>
-                :<LogoSvgBlack title={title} className="brand__svg__logo"></LogoSvgBlack>
+                // We check if wpLogo exist and if we dont, we load the logo
+                // from the gatsby images component using the react-svg plugin.
+
+                // If you want to set an different type image (png, jpg) you can 
+                // remove the code  and add your own
+                wpLogo
+                ?<img src={wpLogo} className="brand__svg__logo wp__logo" alt="Raxo" />
+                :this.state.darkTheme
+                  ?<LogoSvgwhite title={title} className="brand__svg__logo local__logo" alt="Raxo"></LogoSvgwhite>
+                  :<LogoSvgBlack title={title} className="brand__svg__logo local__logo" alt="Raxo"></LogoSvgBlack>
               }
             </Link>
           </div>

@@ -5,15 +5,21 @@ import { useStaticQuery, graphql } from "gatsby"
 const SocialMenu = ({  }) => {
   /* ===================IMPORTANT======================
     For this menu to work you need to create a group
-    of custom fields for the options section and add 
-    it to the query, usually those are under the field 
-    node { options }
+    of custom fields for the Options Page and add 
+    it to the query, usually those are under the field:
+
+    node { 
+      options 
+    }
 
     This menu uses a repeater field with two fields
     1- A select field for the social network name called
-    network_channel 
+    "network_channel" or you can add your own name but 
+    don't forget to change it on the JSX code
+
     2- A text field for the network link called 
-    network_link
+    "network_link" or you can add your own name but 
+    don't forget to change it on the JSX code
     ===================================================
   */
   const data = useStaticQuery(graphql`

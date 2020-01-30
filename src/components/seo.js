@@ -11,6 +11,7 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({ description, lang, meta, title }) {
+  // We query the site metadata
   const data = useStaticQuery(graphql`
     query {
       allWordpressSiteMetadata {
@@ -26,9 +27,11 @@ function SEO({ description, lang, meta, title }) {
     }
   `)
   const siteData = data.allWordpressSiteMetadata.edges[0].node
+  // Set the meta description from wordpress or from gatsby config files
   const metaDescription = description || siteData.description
 
   return (
+    // Helmet its used to set the html attributes
     <Helmet
       htmlAttributes={{
         lang : 'en',
