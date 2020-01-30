@@ -1,4 +1,4 @@
-.home__page{
+.home__page, .not__found__page{
     min-height: 81vh;
     background: white;
     color: black;
@@ -8,6 +8,7 @@
     justify-content: center;
     position: relative;
     z-index: 0;
+    flex-direction: column;
 }
 .btn.--main{
     border: none;
