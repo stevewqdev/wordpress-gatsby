@@ -6,7 +6,7 @@ import "./menus.css"
 const MainMenu = (props) => {
     /* ===================IMPORTANT======================
     For this menu to work you need to create a menu
-    with the slug name of main-menu or you can change
+    with the slug name of "main-menu" or you can change
     the query to call your current menu
     ===================================================
   */
@@ -31,6 +31,7 @@ const MainMenu = (props) => {
 
   var menuItems = false; 
   var menuId = false; 
+
   if(data.allWordpressMenusMenusItems){
     menuItems = data.allWordpressMenusMenusItems.edges[0].node.items;
     menuId  = data.allWordpressMenusMenusItems.edges[0].node.wordpress_id;
@@ -43,7 +44,7 @@ const MainMenu = (props) => {
         menuItems
         ? menuItems.map((item, index) => 
             <li key={item.wordpress_id}  className={`list__element ` + item.classes}>
-              <Link to={'/' + item.url}>
+              <Link to={item.url} id={item.url}>
                 {item.title}
               </Link>
             </li>

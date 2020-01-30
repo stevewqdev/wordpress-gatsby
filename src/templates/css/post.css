@@ -7,11 +7,11 @@
     margin: 0 auto;
 }
 .post__content__wrapper{
-    padding: 0 130px;
+    padding: 80px 130px 0;
 }
 .post__image img{ 
-    width: 100%;
-    height: 350px;
+    width: 100%!important;
+    height: 350px!important;
     border-radius: 5px;
     object-fit: cover;
     box-shadow: 0 30px 60px -10px rgba(0,0,0,0.3), 0 18px 36px -18px rgba(0,0,0,0.33);    
@@ -44,4 +44,8 @@
     font-size: 15px;
     color: #80808094;
     text-transform: capitalize;
+}
+.dynamic__image > div {
+    padding-bottom: 0px!important;
+    height: 350px;
 }

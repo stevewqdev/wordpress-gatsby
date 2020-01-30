@@ -3,6 +3,7 @@ import Layout from "../layouts/index"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import ReturnButton from '../components/master/returnButton/returnButton'
+import Img from 'gatsby-image'
 
 
 import "./css/post.css"
@@ -15,7 +16,9 @@ class Post extends Component {
       image: false,
       webpImage: false,
       altText: '',
+      dynamicResolutions: false
     }; 
+
     // We will check if the post has any featured image set
     if(post.featured_media){
       // We save the image url into the object
@@ -26,6 +29,10 @@ class Post extends Component {
         postMedia.altText = post.featured_media.alt_text;
       }else{
         postMedia.altText = 'At the moment this image does not have a description';
+      }
+
+      if(post.featured_media.localFile.childImageSharp.fluid){
+        postMedia.dynamicResolutions = post.featured_media.localFile.childImageSharp.fluid;
       }
     }
     // We check if the post contains any category besides the uncategorized
@@ -41,14 +48,16 @@ class Post extends Component {
               {
                 postMedia.image 
                 ? 
-                  <>
-                    <picture>
-                      <source srcset={postMedia.webpImage} type="image/webp" />
-                      <source srcset={postMedia.image} type="image/jpeg" />
-                      <img src={postMedia.image} alt={postMedia.altText} /> 
-                    </picture>
-                  </>
-                :  <div className="post__image --noImage"></div>
+                  postMedia.dynamicResolutions
+                  ?  <Img className={'dynamic__image'} fluid={post.featured_media.localFile.childImageSharp.fluid} />
+                   : <>
+                      <picture>
+                        <source srcSet={postMedia.webpImage} type="image/webp" />
+                        <source srcSet={postMedia.image} type="image/jpeg" />
+                        <img src={postMedia.image} alt={postMedia.altText} /> 
+                      </picture>
+                    </>
+                : <div className="post__image --noImage"></div>
               }
             </div>
             <div className="post__content__wrapper">
@@ -91,7 +100,7 @@ class Post extends Component {
                 </div>
               </div>
             </div>
-            <ReturnButton buttonText={'Return to Blog'} redirectionLink={'/blog'} customClass={'inner__post__return__button'}></ReturnButton>
+            <ReturnButton buttonText={'Return to Blog'} redirectionLink={`/blog`} customClass={'inner__post__return__button'}></ReturnButton>
           </div>
       </Layout>
     )
@@ -135,6 +144,15 @@ export const postQuery = graphql`
       featured_media{
         source_url
         alt_text
+        caption
+        description
+        localFile {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
       author {
         name
