@@ -41,7 +41,7 @@ const MainMenu = (props) => {
     <div className={`menu__wrapper main__menu ${props.theme}`}>
       <ul >
         <li className={`list__element `}>
-          <Link to="/blog" id="/blog/">Blog</Link>
+          <Link to="/blog" id="/blog">Blog</Link>
         </li>
         {
         /* {
