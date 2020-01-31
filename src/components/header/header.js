@@ -20,7 +20,18 @@ class Header extends Component {
   // This functions gets the current pathname to match the current page item
   markCurrentPageItem(){
     let currentUrl = globalHistory.location.pathname
+
+    if(currentUrl !== '/'){
+      if ( [...currentUrl][currentUrl.length-1] === '/') {
+        currentUrl = [...currentUrl];
+        currentUrl.pop();
+        currentUrl = currentUrl.toString();
+        currentUrl = currentUrl.replace (/,/g, "");
+      }
+    }
+
     let currentPageItem = document.getElementById(currentUrl);
+
     if(currentPageItem){
       if(currentUrl === '/'){
         currentPageItem.classList.add('its__home__page');
