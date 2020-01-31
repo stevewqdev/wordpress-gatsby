@@ -4,8 +4,6 @@ import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import ReturnButton from '../components/master/returnButton/returnButton'
 import Img from 'gatsby-image'
-
-
 import "./css/post.css"
 class Post extends Component {
   render() {
@@ -18,7 +16,6 @@ class Post extends Component {
       altText: '',
       dynamicResolutions: false
     }; 
-
     // We will check if the post has any featured image set
     if(post.featured_media){
       // We save the image url into the object
@@ -30,7 +27,6 @@ class Post extends Component {
       }else{
         postMedia.altText = 'At the moment this image does not have a description';
       }
-
       if(post.featured_media.localFile.childImageSharp.fluid){
         postMedia.dynamicResolutions = post.featured_media.localFile.childImageSharp.fluid;
       }
@@ -106,12 +102,10 @@ class Post extends Component {
     )
   }  
 }
-
 Post.propTypes = {
   data: PropTypes.object.isRequired,
   edges: PropTypes.array,
 }
-
 export default Post
 /*
 ============================================

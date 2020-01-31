@@ -12,14 +12,17 @@ const SocialMenu = ({  }) => {
       options 
     }
 
-    This menu uses a repeater field with two fields
+    This menu uses a repeater field with two fields you
+    need to create
+
     1- A select field for the social network name called
     "network_channel" or you can add your own name but 
     don't forget to change it on the JSX code
 
     2- A text field for the network link called 
     "network_link" or you can add your own name but 
-    don't forget to change it on the JSX code
+    don't forget to change it on the JSX code and add them
+    into the graphql query
     ===================================================
   */
   const data = useStaticQuery(graphql`
@@ -33,12 +36,10 @@ const SocialMenu = ({  }) => {
       }
     }
   `)
-  
   var menuItems = false;
   if(data.allWordpressAcfOptions.edges[0].node.options){
     menuItems = data.allWordpressAcfOptions.edges[0].node.options.social_network
   }
-  
   return (
     <div className={menuItems ? 'social__menu' : ' hidden__element'}>
       <ul className="social__menu__wrapper">
@@ -56,7 +57,6 @@ const SocialMenu = ({  }) => {
       } 
       </ul>
     </div>  
-
   )
 }
 export default SocialMenu

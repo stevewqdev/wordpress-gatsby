@@ -1,21 +1,11 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Helmet from "react-helmet"
-
 import Header from "../components/header/header"
 import Footer from "../components/footer/footer"
-
 import "./index.css"
 import "./custom.css"
-
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query {
@@ -43,19 +33,19 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
   const siteData = data.allWordpressSiteMetadata.edges[0].node
   let siteLogo = false, 
       siteFavicon = false
-  
-  // We verify if the logo query returned something
+
+  /* ===== We verify if the logo query returned something 
   if(data.logo.nodes.length > 0){
     siteLogo = data.logo.nodes[0].source_url
-  }
-  // We verify if the favicon query returned something
+  } ===== */
+
+  /* ===== We verify if the favicon query returned something
   if(data.favicon.nodes.length > 0){
     siteFavicon = data.favicon.nodes[0].source_url
-  }
+  } ===== */
 
   return (
     <>
@@ -70,9 +60,7 @@ const Layout = ({ children }) => {
     </>
   )
 }
-
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
 export default Layout

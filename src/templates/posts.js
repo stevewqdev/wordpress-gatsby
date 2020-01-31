@@ -4,9 +4,7 @@ import Layout from "../layouts/index"
 import Link from 'gatsby-link'
 import PaginationController from '../components/blog/paginationController/paginationController'
 import ReturnButton from '../components/master/returnButton/returnButton'
-
 import "./css/posts.css"
-
 const PostsIndex = ({ pageContext }) => {
 const { group, index, first, last, pageCount } = pageContext
 const previousUrl = index - 1 === 1 ? '/' : (index - 1).toString()

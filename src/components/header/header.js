@@ -1,22 +1,16 @@
 import React, {Component} from "react"
 import Link from 'gatsby-link'
 import MainMenu from "../menu/mainMenu"
-import SocialMenu from "../social-menu/socialMenu"
 import { globalHistory } from "@reach/router"
 import "./header.css"
 // Get the svg logo as a component
 import LogoSvgBlack from "./../../images/svg/logo.svg"
 import LogoSvgwhite from "./../../images/svg/logo-white.svg"
-
-
-
 class Header extends Component {
-  
   constructor(props) {
     super(props);
     this.state = { darkTheme: false };
   }
-
   // This functions gets the current pathname to match the current page item
   markCurrentPageItem(){
     let currentUrl = globalHistory.location.pathname
@@ -29,17 +23,14 @@ class Header extends Component {
       }
     }
   }
-
   componentDidMount(){
     this.markCurrentPageItem()
   }
-
   render() {
       let wpLogo = false; 
       if(this.props.siteLogo){
         wpLogo = this.props.siteLogo
       }
-      
       const title = this.props.siteTitle;
       return (
         <div className="header__wrapper">
@@ -60,11 +51,8 @@ class Header extends Component {
             </Link>
           </div>
           <MainMenu theme={this.state.darkTheme ? '--dark' : '--light' }></MainMenu>
-          <SocialMenu></SocialMenu>
         </div>
       )
   }
 }
-
-
 export default Header
