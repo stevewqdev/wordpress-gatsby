@@ -105,4 +105,4 @@
 <h2>Next Features to add into the project</h2>
 <ul>
 <li>Create a version of this project with woocommerce integration</li>
-</ul>
+</ul># bruinsport
