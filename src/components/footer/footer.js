@@ -6,19 +6,12 @@ import { useStaticQuery, graphql } from "gatsby"
 import "./footer.css"
 
 const Footer = ({siteTitle}) => {
-    /* === For this query to work you need to create ACF group 
-    field and query it in the next Grapqhl query ========== */
-
-      // const data = useStaticQuery(graphql`
-      // query footerQuery {
-      //   allWordpressAcfOptions {
-      //     edges {
-      //       node {
-      //       }
-      //     }
-      //   }
-      // }
-      // `)
+    // const data = useStaticQuery(graphql`
+    // query footerQuery {
+    //   allWordpressAcfOptions {
+    //   }
+    // }
+    // `)
 
     /* ======================================================*/
     return (

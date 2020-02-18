@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import Layout from "../layouts/index"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
-import ReturnButton from '../components/master/returnButton/returnButton'
+import InternalButton from '../components/master/buttons/internalButton'
 import Img from 'gatsby-image'
 import "./css/post.css"
 class Post extends Component {
@@ -96,7 +96,7 @@ class Post extends Component {
                 </div>
               </div>
             </div>
-            <ReturnButton buttonText={'Return to Blog'} redirectionLink={`/blog`} customClass={'inner__post__return__button'}></ReturnButton>
+            <InternalButton buttonText={'Return to Blog'} redirectionLink={`/blog`} customClass={'inner__post__return__button'}></InternalButton>
           </div>
       </Layout>
     )
@@ -142,7 +142,7 @@ export const postQuery = graphql`
         description
         localFile {
           childImageSharp {
-            fluid {
+            fluid(maxWidth: 2000, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

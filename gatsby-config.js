@@ -9,33 +9,19 @@ module.exports = {
     // author: ``,
   },
   plugins: [
+    // {
+    //   resolve: `gatsby-plugin-mailchimp`,
+    //   options: {
+    //       endpoint: `${process.env.MAILCHIMP_KEY}`, 
+    //   },
+    // },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-nprogress`,
       options: {
-        fonts: [
-          {
-            family: `Quicksand`,
-            variants: [`400`,  `500` ,  `700`]
-          },
-          {
-            family: `Playfair Display`,
-            variants: [`400`, `700`]
-          },
-          {
-            family: `Playfair Display`,
-            subsets: [`latin`]
-          },
-          {
-            family: `Quicksand`,
-            subsets: [`latin`]
-          },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-mailchimp`,
-      options: {
-          endpoint: `${process.env.MAILCHIMP_KEY}`, 
+        // Setting a color is optional.
+        color: `tomato`,
+        // Disable the loading spinner.
+        showSpinner: false,
       },
     },
     {
@@ -59,16 +45,6 @@ module.exports = {
         hostingWPCOM: false,
         useACF: true,
         verboseOutput: true,
-        includedRoutes: [
-          "**/categories",
-          "**/posts",
-          "**/pages",
-          "**/media",
-          "**/tags",
-          "**/taxonomies",
-          "**/users",
-          "**/menus"
-        ],
       },
     },
     `gatsby-plugin-sharp`,

@@ -48,11 +48,6 @@ class Header extends Component {
           <div className="brand__wrapper" id="/">
             <Link to="/" className="brand__link">
               {
-                // We check if wpLogo exist and if we dont, we load the logo
-                // from the gatsby images component using the react-svg plugin.
-
-                // If you want to set an different type image (png, jpg) you can 
-                // remove the code  and add your own
                 wpLogo
                 ?<img src={wpLogo} className="brand__svg__logo wp__logo" alt="Raxo" />
                 :this.state.darkTheme

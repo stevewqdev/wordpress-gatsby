@@ -9,8 +9,8 @@ const slash = require(`slash`)
 const queryAll = require(`./src/queries/queryAll.js`)
 const createPaginatedPages = require(`gatsby-paginate`)
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-    const { createPage } = boundActionCreators;
+exports.createPages = ({ graphql, actions }) => {
+    const { createPage } = actions;
 
     return new Promise((resolve, reject) => {
         // We set the variables for the default templates

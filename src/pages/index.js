@@ -6,8 +6,7 @@ import { globalHistory } from "@reach/router"
 import "./css/index.css"
 class HomePage extends Component {
   render() {
-    // This variable will return all the fields related to the post
-    const home = this.props.data.allWordpressPage.edges[0].node
+
     return (
       <Layout>
         <Helmet>
@@ -27,7 +26,7 @@ class HomePage extends Component {
               </p>
             </div>
             <div>
-              <a href="https://github.com/stevewqdev/wordpress-gatsby/tree/demo_site_branch" target="_BLANK">
+              <a href="https://github.com/stevewqdev/wordpress-gatsby/tree/demo_site_branch" rel="noopener noreferrer" target="_BLANK">
                 <button className={'btn --main'}>See the repositorie</button>
               </a>
             </div>
@@ -38,28 +37,13 @@ class HomePage extends Component {
   }
 }
 export default HomePage
-/*
-============================================
-To select the acf fields you need to add them  
-into the query and the fields you want to retrieve
+/* ====== Here goes your home query ======= //
 
-acf {
-  field1
-  field1
-}
-============================================
-*/
 export const pageQuery = graphql`
 query MyQuery {
   allWordpressPage(filter: {path: {eq: "/"}}) {
-    edges {
-      node {
-        id
-        title
-        content
-        date(formatString: "MMMM DD, YYYY")
-      }
-    }
+
   }
 }
 `
+=========================================== */
